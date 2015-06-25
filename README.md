@@ -13,3 +13,5 @@ Repositorio de la plataforma colaborativa "Sharehits"
 - Playlist colaborativas e interactivas
 
 
+## Documentacion de desarrollo
+https://docs.google.com/document/d/1KsqAoenvSD4GTlpsWedAQR4zLAWLv8_Ofa7Tj0GpxF0

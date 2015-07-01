@@ -15,3 +15,6 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
 ## Documentacion de desarrollo
 https://docs.google.com/document/d/1KsqAoenvSD4GTlpsWedAQR4zLAWLv8_Ofa7Tj0GpxF0
+
+##Pasos para correr en backend
+[Ver](sharehits/README.md)

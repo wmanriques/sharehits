@@ -7,6 +7,6 @@
 5. Active your virtual environment (command: source sharehits/bin/activate or with virtualwrapper: workon sharehits)
 6. Install requirements with pip (command: pip install -r requirements.txt)
 7. Run the application (python manage.py runserver)
-8. In your browser enter the address (127.0.0.1:8000)
+8. In your browser enter the address (localhost:8000)
 
 **by: @wil_jm**

@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app="sharehits">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="../../../static/public/lib/angular-material/angular-material.min.css">
+      <link rel="stylesheet" href="../../../static/public/css/main.css">
+      <title>ShareHits</title>
+   </head>
+   <body>
+      <div ui-view>
+      	<div layout="column" layout-align="center center">
+		   <h1>Sharehits! Playlist Colectivo</h1>
+		      <div layout=column layout-align="space-around center">
+		         <img src="../../../static/public/img/facebook-person.jpg">
+		         <md-button class="md-raised" ng-click="loginFacebook()">
+		             Join with facebook
+		         </md-button>
+		      </div>
+
+		</div>
+
+      </div>
+
+
+      <!-- LIBS -->
+      <script src="../../../static/public/lib/angular/angular.min.js"></script>
+      <script src="../../../static/public/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+      <script src="../../../static/public/lib/angular-animate/angular-animate.min.js"></script>
+      <script src="../../../static/public/lib/angular-aria/angular-aria.min.js"></script>
+      <script src="../../../static/public/lib/angular-material/angular-material.min.js"></script>
+      <!-- App -->
+      <script src="../../../static/public/js/common/models/user.js"></script>
+      <script src="../../../static/public/js/common/models/sala.js"></script>
+      <script src="../../../static/public/js/components/login/login.js"></script>
+      <script src="../../../static/public/js/components/dashboard/dashboard.js"></script>
+      <script src="../../../static/public/js/sharehits.js"></script>
+   </body>
+
+</html>

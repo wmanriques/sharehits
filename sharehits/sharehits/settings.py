@@ -26,6 +26,7 @@ SECRET_KEY = '=0mjd*(*lx3*#uivvf_c(k-#r1&@3snh)65zpj7e@)ib$njpl8'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = True
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'modules.perfil',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,4 +101,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+TEMPLATE_DIRS = (
+    os.path.realpath(os.path.join(BASE_DIR, 'modules/perfil/templates/')),
+)
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.realpath(os.path.join(BASE_DIR, 'static')),
+)
+
+print STATICFILES_DIRS

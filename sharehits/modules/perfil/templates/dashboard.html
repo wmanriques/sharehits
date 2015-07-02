@@ -2,11 +2,25 @@
 {% load staticfiles %}
 
 {% block content %}
-<h1>Sharehits! Playlist colectivo</h1>
-<h2>Profile</h2>
-	{% if user.is_authenticated %}
-	 Welcome {{ user.first_name }}
-	 <img src="{{user.profile.photo}}" class="img-account">
-	 <li><a href="{% url 'auth_logout' %}">Logout</a></li>
-	{% endif %}
+<div ng-app='sharehits'>
+	<div layout="column" >
+		<md-toolbar>
+		      <div class="md-toolbar-tools">
+		        <h2>
+		          <span>Sharehits</span>
+		        </h2>
+		        <span flex></span>
+					{% if user.is_authenticated %}
+					<p>{{ user.first_name }}</p>
+		        	<img src="{{user.profile.photo}}">
+					<a href="{% url 'auth_logout' %}">Logout</a>
+					{% endif %}
+		      </div>
+			</md-toolbar>
+	</div>
+
+	<div ui-view>
+
+	</div>
+</div>
 {% endblock %}

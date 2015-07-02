@@ -7,10 +7,13 @@
 <div layout="column" layout-align="center center">
 	<h1>Sharehits! Playlist Colectivo</h1>
 	<div layout=column layout-align="space-around center">
-	 <img src="{% static 'public/img/facebook-person.jpg' %}"/>
-	 <md-button class="md-raised">
-	     <a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">Join with facebook</a>
-	 </md-button>
+		<img src="{% static 'public/img/facebook-person.jpg' %}"/>
+		<a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">
+			<md-button class="md-raised">
+				Join with facebook
+			</md-button>
+		</a>
+
 	</div>
 </div>
 

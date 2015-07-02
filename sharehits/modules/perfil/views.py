@@ -9,6 +9,10 @@ class LoginTemplateView(TemplateView):
 	template_name = "login.html"
 
 
+class DashboardTemplateView(TemplateView):
+	template_name = "dashboard.html"
+
+
 def logout_view(request):
 	pass
 	#logout(request)

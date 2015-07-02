@@ -14,8 +14,8 @@
 		   <h1>Sharehits! Playlist Colectivo</h1>
 		      <div layout=column layout-align="space-around center">
 		         <img src="../../../static/public/img/facebook-person.jpg">
-		         <md-button class="md-raised" ng-click="loginFacebook()">
-		             Join with facebook
+		         <md-button class="md-raised">
+		             <a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">Join with facebook</a>
 		         </md-button>
 		      </div>
 

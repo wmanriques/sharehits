@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'modules.perfil',
+    'social.apps.django_app.default', #python social auth
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,4 +112,51 @@ STATICFILES_DIRS = (
     os.path.realpath(os.path.join(BASE_DIR, 'static')),
 )
 
-print STATICFILES_DIRS
+
+#######python social auth###################
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.tz',
+    'django.core.context_processors.request',
+    'django.contrib.messages.context_processors.messages',
+    'django.contrib.auth.context_processors.auth',
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    'social.apps.django_app.context_processors.backends',
+)
+
+AUTHENTICATION_BACKENDS = (
+    #'social.backends.twitter.TwitterOAuth',
+    #'django.contrib.auth.backends.ModelBackend',
+    'social.backends.facebook.FacebookOAuth2',
+    #'accounts.auth_backends.EmailOrUsernameBackend',
+    'django.contrib.auth.backends.ModelBackend',  #important for admin auth
+)
+
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.social_auth.associate_by_email',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    #'auth.pipeline.get_profile_avatar',
+    #'accounts.social_auth_pipeline.get_profile_data', # custom
+    #'accounts.social_auth_pipeline.get_profile_avatar', # custom
+)
+
+from django.core.urlresolvers import reverse_lazy
+
+LOGIN_URL = reverse_lazy('auth_login')
+LOGOUT_URL = reverse_lazy('auth_logout')
+
+SOCIAL_AUTH_FACEBOOK_EXTENDED_PERMISSIONS = ['email', 'user_birthday']
+SOCIAL_AUTH_FACEBOOK_KEY = '1663713687194771'
+SOCIAL_AUTH_FACEBOOK_SECRET = '14c790906616f7e283108cb7994fbdff'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('perfil_dashboard')

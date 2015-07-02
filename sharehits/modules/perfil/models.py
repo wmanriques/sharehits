@@ -1,7 +1,8 @@
+"""
 from django.db import models
 from django.contrib.auth.models import User
 
-"""
+
 class UserProfile(models.Model):
     
     user = models.OneToOneField(User)
@@ -10,3 +11,10 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return u"{} profile".format(self.user)
 """
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, related_name='profile')
+    photo = models.TextField()

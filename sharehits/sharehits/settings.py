@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'modules.perfil',
     'social.apps.django_app.default', #python social auth
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,8 +109,6 @@ TEMPLATE_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.realpath(os.path.join(BASE_DIR, 'media/'))
 
-print MEDIA_ROOT
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
@@ -153,6 +152,7 @@ SOCIAL_AUTH_PIPELINE = (
     #'auth.pipeline.get_profile_avatar',
     #'accounts.social_auth_pipeline.get_profile_data', # custom
     #'accounts.social_auth_pipeline.get_profile_avatar', # custom
+    'modules.perfil.pipeline.get_profile_picture',
 )
 
 from django.core.urlresolvers import reverse_lazy

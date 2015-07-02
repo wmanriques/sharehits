@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
-
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView
 
 
@@ -14,6 +14,5 @@ class DashboardTemplateView(TemplateView):
 
 
 def logout_view(request):
-	pass
-	#logout(request)
-	#return HttpResponseRedirect('/')
+	logout(request)
+	return HttpResponseRedirect(reverse_lazy('auth_login'))

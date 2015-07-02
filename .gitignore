@@ -3,3 +3,9 @@ public/lib
 *.~
 .idea
 *.pyc
+sharehits/local
+sharehits/include
+sharehits/lib
+sharehits/bin
+sharehits/pip-selfcheck.json
+sharehits/static/public/lib

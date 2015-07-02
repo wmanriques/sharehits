@@ -1,3 +1,4 @@
 {% if user.is_authenticated %}
  Welcome {{ user.username }}
+ <li><a href="{% url 'auth_logout' %}">Logout</a></li>
 {% endif %}

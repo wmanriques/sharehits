@@ -1,4 +1,11 @@
-{% if user.is_authenticated %}
- Welcome {{ user.username }}
- <li><a href="{% url 'auth_logout' %}">Logout</a></li>
-{% endif %}
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<h1>Sharehits! Playlist colectivo</h1>
+<h2>Profile</h2>
+	{% if user.is_authenticated %}
+	 Welcome {{ user.username }}
+	 <li><a href="{% url 'auth_logout' %}">Logout</a></li>
+	{% endif %}
+{% endblock %}

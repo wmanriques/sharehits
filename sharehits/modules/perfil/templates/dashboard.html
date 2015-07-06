@@ -9,18 +9,25 @@
 		        <h2>
 		          <span>Sharehits</span>
 		        </h2>
-		        <span flex></span>
-					{% if user.is_authenticated %}
-					<p>{{ user.first_name }}</p>
-		        	<img src="{{user.profile.photo}}">
+					<span flex></span>
+					<div class="nav">
+						<ul>
+							<li>
+								{% if user.is_authenticated %}
+								<span>{{ user.first_name }}</span>
+								<img src="{{user.profile.photo}}" class="dashboard-image">
+								{% endif %}
+							</li>
+						</ul>
+					</div>
+					<!--
 					<a href="{% url 'auth_logout' %}">Logout</a>
-					{% endif %}
-		      </div>
+					-->
+				</div>
 			</md-toolbar>
 	</div>
 
 	<div ui-view>
-
 	</div>
 </div>
 {% endblock %}

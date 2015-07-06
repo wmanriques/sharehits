@@ -1,12 +1,18 @@
-angular.module("dashboard",[])
+angular.module("sala",[])
    .config(['$stateProvider',function ($sp) {
       $sp.
-         state("dashboard.sala",{
+         state("sala",{
             url:"/sala/:salaId",
-            templateUrl:"js/components/dashboard/sala.html",
-            controller:"salaController"
-         })
+            templateUrl:"/static/public/js/components/dashboard/sala/sala.html",
+            controller:"salaController",
+            resolve:{
+               sala : function ($stateParams,Sala) {
+                  var index = Sala.salas.map(function (sala) {return sala.id;}).indexOf(parseInt($stateParams.salaId));
+                  return Sala.salas[index];
+               }
+            }
+         });
    }])
-   .controller("salaController",["$scope",function ($scope) {
-      $scope.sala = "Sala test";
-   }])
+   .controller("salaController",["$scope","sala",function ($scope,sala) {
+      $scope.sala = sala;
+   }]);

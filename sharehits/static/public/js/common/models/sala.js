@@ -4,17 +4,19 @@ angular.module("models.sala",[])
          "salas" : [
                {
                   id:21,
-                  tags:"as,sadsa,dasda,das"
+                  nombre:"sala 1",
+                  tags:["as","sadsa","dasda","das"]
                },
                {
                   id:213,
-                  tags:"as,sadsa,dasda,das"
+                  nombre:"sala 2",
+                  tags:["as","sadsa","dasda","das"]
                },
                {
                   id:1,
-                  tags:"as,sadsa,dasda,das"
+                  nombre:"sala 3",
+                  tags:["as","sadsa","dasda","das"]
                }
          ]
-      }
-
+      };
    }]);

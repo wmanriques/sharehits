@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'modules.perfil',
     'social.apps.django_app.default', #python social auth
     'django_extensions',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

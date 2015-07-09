@@ -5,9 +5,9 @@
         <md-content class="md-padding">
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
-                <md-list-item ng-repeat="sala in salas track by sala.id" class="item-sala md-raised">
-                   <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme"
-                           ng-style="{'background-image':'url('+sala.img+')'}">
+                <md-list-item ng-repeat="sala in salas track by sala.id" class="item-sala md-raised"
+                              ng-style="{'background-image':'url('+sala.img+')'}">
+                   <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme">
                      <h2>{{ sala.nombre }}</h2>
 
                         <div ng-repeat="tag in sala.tags">

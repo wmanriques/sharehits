@@ -1,28 +1,30 @@
 <md-content class="md-padding">
     <md-tabs md-dynamic-height md-border-bottom>
+
       <md-tab label="Salas publicas">
         <md-content class="md-padding">
-           <div layout="row" layout-align="center center">
+           <!--<div layout="row" layout-align="center center">-->
              <md-list>
                 <md-list-item ng-repeat="sala in salas track by sala.id">
-                   <div class="md-list-item-text">
+                   <a  ui-sref="sala({salaId:sala.id})" class="md-list-item-text">
                      <h2>{{ sala.nombre }}</h2>
 
                         <div ng-repeat="tag in sala.tags">
                            <p>{{tag}}</p>
                         </div>
-                     <a ui-sref="sala({salaId:sala.id})">Entrar</a>
-                   </div>
+                   </a>
                    <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
              </md-list>
-           </div>
+           <!--</div>-->
         </md-content>
       </md-tab>
+
       <md-tab label="Mis salas">
         <md-content class="md-padding">
           <p>Mis salas</p>
         </md-content>
       </md-tab>
+
     </md-tabs>
   </md-content>

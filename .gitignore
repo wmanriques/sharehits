@@ -3,6 +3,8 @@ public/lib
 *.~
 .idea
 *.pyc
+*.sqlite3
+*.sqlite
 local
 include
 lib

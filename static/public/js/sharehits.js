@@ -3,10 +3,10 @@ angular.module("sharehits",[
    "ngMaterial",
    "ui.router",
    //Apps-modules
-   "login",
+   "sala",
    "dashboard"
 
    ])
    .config(['$urlRouterProvider',function ($urp) {
-      $urp.otherwise("/")
+      $urp.otherwise("/");
    }]);

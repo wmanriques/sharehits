@@ -1,7 +1,6 @@
 angular.module("dashboard",[
    "models.user",
    "models.sala",
-   "sala"
 ])
    .config(['$stateProvider',function ($sp) {
       $sp.

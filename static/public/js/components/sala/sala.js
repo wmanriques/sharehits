@@ -3,7 +3,7 @@ angular.module("sala",[])
       $sp.
          state("sala",{
             url:"/sala/:salaId",
-            templateUrl:"/static/public/js/components/dashboard/sala/sala.html",
+            templateUrl:"/static/public/js/components/sala/sala.html",
             controller:"salaController",
             resolve:{
                sala : function ($stateParams,Sala) {

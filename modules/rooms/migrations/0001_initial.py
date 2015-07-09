@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=50)),
                 ('image', models.URLField()),
                 ('mode', models.CharField(max_length=50, choices=[(b'PUBLIC', b'Public'), (b'PRIVATE', b'Private')])),
+                ('date_creation', models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(
@@ -41,13 +42,17 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('mode', models.CharField(max_length=50, choices=[(b'ADMIN', b'Admin'), (b'MEMBER', b'Member')])),
-                ('room', models.ForeignKey(to='rooms.Room')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='song',
             name='room',
+            field=models.ForeignKey(to='rooms.User_Room'),
+        ),
+        migrations.AddField(
+            model_name='room',
+            name='user',
             field=models.ForeignKey(to='rooms.User_Room'),
         ),
     ]

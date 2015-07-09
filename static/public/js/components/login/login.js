@@ -14,4 +14,6 @@ angular.module("login",[])
          console.log("Implementar login con facebook");
          $state.go("dashboard");
       }
+        console.log("login");
+
    }])

@@ -6,6 +6,7 @@ angular.module("models.sala",[])
                   id:21,
                   nombre:"Vivo por el rock lml",
                   img:"https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/976318_531172143604437_1180814581_o.jpg",
+//                "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/976318_531172143604437_1180814581_o.jpg",
                   tags:["as","sadsa","dasda","das"]
                },
                {
@@ -23,7 +24,7 @@ angular.module("models.sala",[])
                {
                   id:31,
                   nombre:"Acustico",
-                  img:"http://www.magunga.com/wp-content/uploads/2015/05/guitar-music.jpg",
+                  img:"http://hdwallpaperia.com/wp-content/uploads/2013/12/Guitar-Music.jpg",
                   tags:["as","sadsa","dasda","das"]
                },
                {

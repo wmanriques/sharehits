@@ -3,7 +3,7 @@
 
 {% block content %}
 <div ng-app='sharehits'>
-	<div layout="column" >
+	<div layout="column" class="header-login">
 		<md-toolbar>
 		      <div class="md-toolbar-tools">
 		        <h2>
@@ -14,8 +14,9 @@
 						<ul>
 							<li>
 								{% if user.is_authenticated %}
-								<span>{{ user.first_name }}</span>
+								<p class="name-user">{{ user.first_name }}</p>
 								<img src="{{user.profile.photo}}" class="dashboard-image">
+
 								{% endif %}
 							</li>
 						</ul>
@@ -24,7 +25,7 @@
 					<a href="{% url 'auth_logout' %}">Logout</a>
 					-->
 				</div>
-			</md-toolbar>
+        </md-toolbar>
 	</div>
 
 	<div ui-view>

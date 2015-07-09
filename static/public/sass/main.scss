@@ -23,4 +23,37 @@
 .new{
   border: none;
 }
+.list-salas{
+  overflow: hidden;
+}
 
+.header-login{
+  .md-toolbar-tools{
+    height: 80px;
+    li{
+       padding-top: 10px;
+      .name-user{
+        display: inline-block;
+        margin: 6px 0 0 0;
+        vertical-align: top;
+      }
+    }
+
+    .dashboard-image{
+      border-radius: 50%;
+    }
+  }
+}
+.item-sala{
+  width: 49%;
+  float: left;
+  margin: 3px;
+  a{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    margin: 0;
+  }
+}

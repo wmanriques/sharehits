@@ -27,8 +27,9 @@ Repositorio de la plataforma colaborativa "Sharehits"
 4. Create a virtual environment with virtualenv (command: virtualenv sharehits or with virtualwrapper: mkvirtualenv sharehits(recommended))
 5. Active your virtual environment (command: source sharehits/bin/activate or with virtualwrapper: workon sharehits)
 6. Install requirements with pip (command: pip install -r requirements.txt)
-7. Run the application (python manage.py runserver)
-8. In your browser enter the address (localhost:8000)
+7. Create the DB: python manage.py migrate
+8. Run the application python manage.py runserver
+9. In your browser enter the address (localhost:8000/perfil)
 
 Warning : En caso de estar en ubuntu 14.04 , asegurarse de tener instalado el paquete python-dev (sudo apt-get install python-dev).
 

@@ -4,12 +4,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView
 
+from braces.views import LoginRequiredMixin
+
 
 class LoginTemplateView(TemplateView):
 	template_name = "login.html"
 
 
-class DashboardTemplateView(TemplateView):
+class DashboardTemplateView(LoginRequiredMixin, TemplateView):
 	template_name = "dashboard.html"
 
 

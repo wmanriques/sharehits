@@ -3,17 +3,17 @@ angular.module("sharehits", [
         "ngMaterial",
         "ui.router",
         //Apps-modules
-        "login",
+        "sala",
         "dashboard"
 
     ])
     .config(['$urlRouterProvider', function ($urp) {
-        $urp.otherwise("/")
+        $urp.otherwise("/");
     }])
     .controller('mainController',['$scope', function($scope){
          $scope.safeApply = function (fn) {
             var phase;
-            if(this.$root!=null){
+            if(this.$root!==null){
               phase = this.$root.$$phase;
             }
             if (phase == '$apply' || phase == '$digest') {
@@ -32,7 +32,7 @@ angular.module("sharehits", [
                 $scope.safeApply(function () {
                     $scope.imgs=[false,false,false];
                     $scope.imgs[i]=true;
-                })
+                });
 //              clearInterval(interIni);
         },4000);
     }]);

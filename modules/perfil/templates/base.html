@@ -4,9 +4,10 @@
 <html ng-app="sharehits">
    <head>
       <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
-      <link rel="stylesheet" href="{% static 'public/css/main.css' %}">
+
       <title>ShareHits</title>
    </head>
    <body ng-controller="mainController">
@@ -25,8 +26,7 @@
       <!-- App -->
       <script src="{% static 'public/js/common/models/user.js' %}"></script>
       <script src="{% static 'public/js/common/models/sala.js' %}"></script>
-      <script src="{% static 'public/js/components/login/login.js' %}"></script>
-      <script src="{% static 'public/js/components/dashboard/sala/sala.js' %}"></script>
+      <script src="{% static 'public/js/components/sala/sala.js' %}"></script>
       <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>
       <script src="{% static 'public/js/sharehits.js' %}"></script>
    </body>

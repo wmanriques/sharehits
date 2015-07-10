@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('image', models.URLField()),
                 ('mode', models.CharField(max_length=50, choices=[(b'PUBLIC', b'Public'), (b'PRIVATE', b'Private')])),
                 ('date_creation', models.DateTimeField(auto_now_add=True)),
+                ('creator', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
@@ -42,6 +43,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('mode', models.CharField(max_length=50, choices=[(b'ADMIN', b'Admin'), (b'MEMBER', b'Member')])),
+                ('room', models.ForeignKey(to='rooms.Room')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -52,7 +54,11 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='room',
-            name='user',
-            field=models.ForeignKey(to='rooms.User_Room'),
+            name='tag',
+            field=models.ManyToManyField(to='rooms.Tag'),
+        ),
+        migrations.AlterUniqueTogether(
+            name='user_room',
+            unique_together=set([('user', 'room')]),
         ),
     ]

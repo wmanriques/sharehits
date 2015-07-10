@@ -6,6 +6,7 @@ angular.module("sharehits", [
         "sala",
         "dashboard"
 
+
     ])
     .config(['$urlRouterProvider', function ($urp) {
         $urp.otherwise("/");

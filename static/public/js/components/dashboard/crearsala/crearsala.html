@@ -1,0 +1,33 @@
+<md-dialog aria-label="Crear Sala">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Crear Sala</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+        <md-icon md-font-icon="fa fa-times" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div>
+      <p>
+         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+         Maxime deserunt nobis molestias, aut accusantium temporibus
+         harum, repudiandae sed quia! Neque sapiente reprehenderit nobis quod
+         quia, corporis, recusandae adipisci temporibus distinctio.
+      </p>
+    </div>
+  </md-dialog-content>
+
+  <div class="md-actions" layout="row">
+    <span flex></span>
+    <md-button ng-click="answer('not useful')" class="md-primary">
+     Aceptar
+    </md-button>
+    <md-button ng-click="answer('useful')" class="md-primary">
+      Cancelar
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

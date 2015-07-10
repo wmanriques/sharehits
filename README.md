@@ -24,8 +24,8 @@ Repositorio de la plataforma colaborativa "Sharehits"
 1. Having installed python (Linux and MAC OSX is the default)
 2. Install pip (command: sudo apt-get install python-pip)
 3. Install virtualenv (command: sudo pip install virtualenv or virtualwrapper(recommended))
-4. Create a virtual environment with virtualenv (command: virtualenv sharehits or with virtualwrapper: mkvirtualenv sharehits(recommended))
-5. Active your virtual environment (command: source sharehits/bin/activate or with virtualwrapper: workon sharehits)
+4. Create a virtual environment with virtualenv (command: virtualenv venv or with virtualwrapper: mkvirtualenv venv(recommended))
+5. Active your virtual environment (command: source venv/bin/activate or with virtualwrapper: workon venv)
 6. Install requirements with pip (command: pip install -r requirements.txt)
 7. Create the DB: python manage.py migrate
 8. Run the application python manage.py runserver

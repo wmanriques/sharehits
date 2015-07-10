@@ -13,16 +13,33 @@
 					<div class="nav">
 						<ul>
 							<li>
-								{% if user.is_authenticated %}
+							{% if user.is_authenticated %}
 								<p class="name-user">{{ user.first_name }}</p>
 								<img src="{{user.profile.photo}}" class="dashboard-image">
+							{% endif %}
+							<md-menu  md-offset="0 30">
+								<md-button aria-label="Settings" ng-click="$mdOpenMenu()">
+									<md-icon  md-menu-origin md-font-icon="fa fa-cog"></md-icon>
+								</md-button>
+								<md-menu-content width="3">
+										<md-menu-item>
+											<md-button href="{% url 'auth_logout' %}">
+												 <md-icon md-menu-align-target md-font-icon="fa fa-power-off">
+													Logout
+												</md-icon>
+											</md-button>
+										</md-menu-item>
+								</md-menu-content>
+							</md-menu>
 
-								{% endif %}
 							</li>
+
 						</ul>
 					</div>
 					<!--
-					<a href="{% url 'auth_logout' %}">Logout</a>
+					<a href="{% url 'auth_logout' %}">
+					Logout
+					</a>
 					-->
 				</div>
         </md-toolbar>

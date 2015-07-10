@@ -21,6 +21,14 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
 ## Pasos para correr en backend
 
+### Windows
+1. Instalar Python 2.7.x
+2. Instalar pip
+   Para Python >= 2.7.9 ya esta incluido.
+   Para Python < 2.7.9 descargar [get-pip.py] (https://bootstrap.pypa.io/get-pip.py)
+   `python get-pip.py`
+
+### Linux
 1. Having installed python (Linux and MAC OSX is the default)
 2. Install pip (command: sudo apt-get install python-pip)
 3. Install virtualenv (command: sudo pip install virtualenv or virtualwrapper(recommended))

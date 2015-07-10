@@ -58,10 +58,13 @@
     background-color: rgba(0, 0, 0, 0.2);
     color: #fff;
     margin: 0;
+    box-sizing: border-box;
+    padding: 10px;
     h2{
+      margin-top: 5px;
       text-align: left;
-      font-size: 35px;
-      padding-left: 30px;
+      font-size: 28px;
+      padding-left: 20px;
     }
   }
 }
@@ -130,9 +133,43 @@ body{
   position: absolute;
   right: 30px;
   top: 21px;
+  z-index: 5;
 }
 .contenedor-tabs{
   md-tabs-wrapper{
     display: inline-block;
   }
+}
+.cont-text-sala{
+  padding: 10px;
+  background: rgba(132, 132, 132, 0.13);
+}
+@media (max-width: 1000px) {
+    .item-sala{
+       width: 91%;
+      display: block;
+      margin: 10px auto;
+      float: none;
+    }
+}
+@media (max-width: 650px) {
+    .item-sala{
+      width: 100%;
+      a{
+       h2{
+         text-align: center;
+         padding-left: 0;
+         font-size: 25px;
+       }
+      }
+    }
+}
+@media (max-width: 500px) {
+    .item-sala{
+      a{
+       h2{
+         font-size: 20px;
+       }
+      }
+    }
 }

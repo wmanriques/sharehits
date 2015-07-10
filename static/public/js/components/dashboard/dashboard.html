@@ -16,11 +16,13 @@
                      class="item-sala md-raised"
                      ng-style="{'background-image':'url('+sala.img+')'}">
                    <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme">
-                     <h2>{{ sala.nombre }}</h2>
+                       <div class="cont-text-sala">
+                        <h2>{{ sala.nombre }}</h2>
 
                         <div ng-repeat="tag in sala.tags">
                            <p>{{tag}}</p>
                         </div>
+                       </div>
                    </md-button>
                    <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>

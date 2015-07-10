@@ -120,3 +120,19 @@ body{
   position: relative;
   height: 100%;
 }
+.contenedor-salas{
+//  text-align: right;
+}
+.cont-input-search{
+  text-align: left;
+}
+.btn-create-room{
+  position: absolute;
+  right: 30px;
+  top: 21px;
+}
+.contenedor-tabs{
+  md-tabs-wrapper{
+    display: inline-block;
+  }
+}

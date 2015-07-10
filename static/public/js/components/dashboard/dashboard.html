@@ -1,8 +1,14 @@
-<md-content class="md-padding">
-    <md-tabs md-dynamic-height md-border-bottom>
-
+<md-content class="md-padding contenedor-salas">
+    <md-button class="md-raised md-warn btn-create-room">Crear sala</md-button>
+    <md-tabs md-dynamic-height md-border-bottom class="contenedor-tabs">
       <md-tab label="Salas publicas">
         <md-content class="md-padding">
+
+            <md-input-container flex class="cont-input-search">
+              <label>Nombre de sala o genero</label>
+              <input ng-model="nameRoom">
+            </md-input-container>
+
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in salas track by sala.id" class="item-sala md-raised"

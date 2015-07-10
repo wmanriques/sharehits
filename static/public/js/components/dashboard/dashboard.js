@@ -14,4 +14,6 @@ angular.module("dashboard",[
       console.log(Sala.salas);
       $scope.user  = User;
       $scope.salas = Sala.salas;
+
+
    }]);

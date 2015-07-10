@@ -39,8 +39,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'modules.perfil',
+    'modules.rooms',
     'social.apps.django_app.default', #python social auth
     'django_extensions',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

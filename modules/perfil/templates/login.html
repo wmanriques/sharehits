@@ -4,17 +4,23 @@
 
 {% block content %}
 
-<div layout="column" layout-align="center center">
-	<h1>Sharehits! Playlist Colectivo</h1>
-	<div layout=column layout-align="space-around center">
-		<img src="{% static 'public/img/facebook-person.jpg' %}"/>
-		<a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">
-			<md-button class="md-raised">
-				Join with facebook
-			</md-button>
-		</a>
-		 <md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>
-	</div>
+<div layout="column " class="contenedor-login" layout-align="center center">
+    <div class="background-images bimg1" ng-class="{opacityLogin:imgs[0]}"></div>
+    <div class="background-images bimg2" ng-class="{opacityLogin:imgs[1]}"></div>
+    <div class="background-images bimg3" ng-class="{opacityLogin:imgs[2]}"></div>
+    <div class="box-login">
+        <h1>Sharehits! Playlist Colectivo</h1>
+        <div layout=column layout-align="space-around center">
+            <img src="{% static 'public/img/facebook-person.jpg' %}"/>
+            <a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">
+                <!--<md-button class="md-raised">
+                    Join with facebook
+                </md-button>-->
+                <md-button class="md-raised md-primary btn-login">Join with facebook</md-button>
+            </a>
+            <!--<md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>-->
+        </div>
+    </div>
 </div>
 
 {% endblock %}

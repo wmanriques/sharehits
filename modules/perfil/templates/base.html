@@ -7,11 +7,10 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
-      <link rel="stylesheet" href="{% static 'public/css/main.css' %}">
 
       <title>ShareHits</title>
    </head>
-   <body>
+   <body ng-controller="mainController">
 
       	{% block content %}
          {% endblock %}

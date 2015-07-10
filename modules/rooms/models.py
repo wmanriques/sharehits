@@ -30,7 +30,7 @@ class Tag(models.Model):
 	name = models.CharField(max_length=10)
 
 	def __unicode__(self):
-		return u"Etiquta: {}".format(self.name)
+		return u"tag : {}".format(self.name)
 
 
 class User_Room(models.Model):

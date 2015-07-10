@@ -22,11 +22,20 @@ Repositorio de la plataforma colaborativa "Sharehits"
 ## Pasos para correr en backend
 
 ### Windows
-1. Instalar Python 2.7.x
-2. Instalar pip
+1. Instalar **Python** 2.7.x
+2. Instalar **pip**
+
    Para Python >= 2.7.9 ya esta incluido.
-   Para Python < 2.7.9 descargar [get-pip.py] (https://bootstrap.pypa.io/get-pip.py)
-   `python get-pip.py`
+
+   Para Python < 2.7.9 descargar [get-pip.py] (https://bootstrap.pypa.io/get-pip.py) e instalar `> python get-pip.py`
+3. Instalar **virtualenv** o **virtualwrapper** `> pip install virtualenv`
+4. Crear el virtual environment
+
+   Ubicarse en el directorio superior del proyecto Sharehits/ ejecutar el comando `> virtualenv sharehits`
+5. Activar el enviroment: ubicarse en Sharehits/Scripts/ `> activate`
+6. Instalar lo **requerimientos**: ubicarse en Sharehits/ `> pip install -r requirements.txt`
+7. Correr la aplicacion: `> python manage.py runserver`
+8. En el browser ingresar [http://localhost:8000/login] (http://localhost:8000/login)
 
 ### Linux
 1. Having installed python (Linux and MAC OSX is the default)

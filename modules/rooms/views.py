@@ -1,11 +1,17 @@
-from django.shortcuts import render
+from django.http import Http404
 
 from .models import Room, Song, Tag
+from .serializers import RoomSerializer
 
-from rest_framework import serializers
+from rest_framework import mixins
+from rest_framework import generics
 
 
-class RoomSerializer(serializers.ModelSerializer):
-	class Meta:
-		model = Room
-		fields = ('name', 'image', 'mode', 'creator', 'tag', 'date_creation')
+class RoomList(generics.ListCreateAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer
+
+
+class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Room.objects.all()
+    serializer_class = RoomSerializer

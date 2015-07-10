@@ -9,5 +9,5 @@ local
 include
 lib
 bin
+scripts
 pip-selfcheck.json
-static/public/lib

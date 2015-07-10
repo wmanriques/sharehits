@@ -15,4 +15,66 @@ angular.module("sala",[])
    }])
    .controller("salaController",["$scope","sala",function ($scope,sala) {
       $scope.sala = sala;
+      var imagePath="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/976318_531172143604437_1180814581_o.jpg";
+      $scope.listMembersChat=[
+          {
+            face : imagePath,
+            name:"Bruce"
+          },
+          {
+            face : imagePath,
+            name:"Bruce"
+          }
+      ];
+      $scope.messages = [
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          },
+          {
+            face : imagePath,
+            what: 'Brunch this weekend?',
+            who: 'Min Li Chan',
+            when: '3:08PM',
+            notes: " I'll be in your neighborhood doing errands"
+          }
+      ]
    }]);

@@ -145,6 +145,50 @@ body{
   padding: 10px;
   background: rgba(132, 132, 132, 0.13);
 }
+
+.list-member{
+  width: 300px;
+  height: 400px;
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: top;
+  h2{
+    text-align: center;
+  }
+}
+.background-room{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  left: 0;
+  top: 0;
+  background-color: black;
+  opacity: 0.13;
+  &.background-room-top{
+      background-color: rgba(0, 0, 0, 0.41);
+
+  }
+}
+.content-chat{
+  width: 400px;
+  height: 530px;
+  display: inline-block;
+  text-align: left;
+  position: relative;
+  vertical-align: top;
+  .content-list-message{
+    height: 450px;
+    overflow-y: auto;
+  }
+  .cont-input-message{
+      position: absolute;
+      bottom: 0;
+      width: 88%;
+      padding-left: 10px;
+  }
+}
 @media (max-width: 1000px) {
     .item-sala{
        width: 91%;

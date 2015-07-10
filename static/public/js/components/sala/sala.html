@@ -1,5 +1,49 @@
-<h2>{{sala.nombre}}</h2>
+<md-content class="md-padding contenedor-salas" >
+    <div class="background-room" ng-style="{'background-image':'url('+sala.img+')'}"></div>
+    <div class="background-room background-room-top" ></div>
+    <!--<div ng-repeat="tag in sala.tags">
+       <p>{{tag}}</p>
+    </div>-->
+    <md-input-container flex class="cont-input-search">
+        <label>Buscar canción o autor</label>
+        <input ng-model="nameSingleAuthor">
+    </md-input-container>
+    <div>
+        <md-content class="list-member md-whiteframe-z3">
+            <h2>{{ sala.nombre }}</h2>
+            <md-list layout-padding>
+                <md-list-item class="md-3-line" ng-repeat="member in listMembersChat">
+                    <img ng-src="{{ member.face }}" class="md-avatar" alt="{{ member.name }}">
 
-<div ng-repeat="tag in sala.tags">
-   <p>{{tag}}</p>
-</div>
+                    <div class="md-list-item-text">
+                        <h4>{{ member.name }}</h4>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+        <!--md-whiteframe class="md-whiteframe-z1"-->
+
+        <md-content class="list-member content-chat md-whiteframe-z3">
+            <md-list class="content-list-message" layout-padding>
+                <md-list-item class="md-3-line" ng-repeat="message in messages">
+                    <img ng-src="{{ message.face }}" class="md-avatar" alt="{{ message.who }}">
+
+                    <div class="md-list-item-text">
+                        <h3>{{ message.what }}</h3>
+                        <h4>{{ message.who }}</h4>
+                        <p>
+                            {{ message.notes }}
+                        </p>
+                    </div>
+                </md-list-item>
+            </md-list>
+            <md-input-container class="cont-input-message" flex>
+                <label>Mensaje...</label>
+                <input ng-model="user.address">
+            </md-input-container>
+        </md-content>
+    </div>
+
+
+
+</md-content>

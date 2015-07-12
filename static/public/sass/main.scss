@@ -7,6 +7,7 @@
    width: auto;
    max-width: 50px;
    max-height: 50px;
+   cursor: pointer;
 }
 
 .nav ul{
@@ -145,16 +146,41 @@ body{
   padding: 10px;
   background: rgba(132, 132, 132, 0.13);
 }
-
-.list-member{
-  width: 300px;
+.cont-rows-shareHist{
+  text-align: center;
+}
+.name-room{
+  text-align: center;
+  font-size: 35px;
+  text-shadow: 0px 1px 3px rgba(81, 81, 81, 0.84);
+  text-transform: uppercase;
+}
+.row-room-shareHist{
+  width: 350px;
   height: 400px;
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 40px;
   vertical-align: top;
+  text-align: left;
   h2{
     text-align: center;
+    margin-bottom: 0px;
   }
+  .reproduct-music{
+    height: 150px;
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 20px;
+  }
+  &.row-room-shareHist-reproduct-playlist{
+    margin-right: 0px;
+  }
+}
+.box-room-general{
+   background: rgba(5, 5, 5, 0.24);
+    .over-list{
+      overflow-y: auto;
+    }
 }
 .background-room{
   position: fixed;
@@ -171,8 +197,36 @@ body{
 
   }
 }
+.cont-btn-logout{
+  .btn-logout{
+    vertical-align: top;
+    background-color: rgb(63,81,181);
+    color: white;
+  }
+}
+.list-member{
+  overflow: hidden;
+  h4{
+    margin-bottom: 0;
+    padding-left: 10px;
+  }
+  .over-list{
+      height: 360px;
+  }
+}
+.cont-playlist{
+  overflow: hidden;
+  h4{
+    margin-bottom: 0px;
+    padding-left: 10px;
+  }
+  .over-list{
+    overflow-y: auto;
+    height: 250px;
+  }
+}
 .content-chat{
-  width: 400px;
+  width: 450px;
   height: 531px;
   display: inline-block;
   text-align: left;
@@ -187,7 +241,11 @@ body{
       bottom: 0;
       width: 88%;
       padding-left: 10px;
+      padding-bottom: 10px;
   }
+}
+.md-open-menu-container.md-active{
+  margin-top: 28px;
 }
 @media (max-width: 1000px) {
     .item-sala{
@@ -216,5 +274,8 @@ body{
          font-size: 20px;
        }
       }
+    }
+    .box-login{
+      width: 100%;
     }
 }

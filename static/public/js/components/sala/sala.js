@@ -24,6 +24,22 @@ angular.module("sala",[])
           {
             face : imagePath,
             name:"Bruce"
+          },
+          {
+            face : imagePath,
+            name:"Bruce"
+          },
+          {
+            face : imagePath,
+            name:"Bruce"
+          },
+          {
+            face : imagePath,
+            name:"Bruce"
+          },
+          {
+            face : imagePath,
+            name:"Bruce"
           }
       ];
       $scope.messages = [
@@ -76,5 +92,35 @@ angular.module("sala",[])
             when: '3:08PM',
             notes: " I'll be in your neighborhood doing errands"
           }
-      ]
+      ];
+      $scope.songs=[
+          {
+              songName:"Hombre lobo en parís",
+              songAuthor:"La Unión"
+          },
+          {
+              songName:"Pronta entrega",
+              songAuthor:"Virus"
+          },
+          {
+              songName:"Haló",
+              songAuthor:"Beyonce"
+          },
+          {
+              songName:"Time in a bottle",
+              songAuthor:"Jim Croce"
+          },
+          {
+              songName:"Pronta entrega",
+              songAuthor:"Virus"
+          },
+          {
+              songName:"Haló",
+              songAuthor:"Beyonce"
+          },
+          {
+              songName:"Time in a bottle",
+              songAuthor:"Jim Croce"
+          }
+      ];
    }]);

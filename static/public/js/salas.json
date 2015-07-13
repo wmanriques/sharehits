@@ -1,0 +1,124 @@
+{
+   "salas":[
+      {
+         "idSala":1,
+         "nombre":"Vivo por el rock lml",
+         "img":"https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/976318_531172143604437_1180814581_o.jpg",
+         "tags":["Hard rock","Pop rock","Rock electrónico","Rock urbano"]
+      },
+      {
+         "idSala":2,
+         "nombre":"Mundo Alternativo",
+         "img":"http://www.wallpaperup.com/uploads/wallpapers/2014/08/07/418775/78db54950b6ab88c60272a66f1701eca.jpg",
+         "tags":["Europop","Techno","Punk rock"]
+      },
+      {
+         "idSala":3,
+         "nombre":"Pop 2015",
+         "img":"http://www.allwalls.net/wallpapers/2012/11/Jimi-Hendrix-720x1280.jpg",
+         "tags":["Europop","Pop latino","Música beat"]
+      },
+      {
+         "idSala":4,
+         "nombre":"Sonada Acustica",
+         "img":"http://hdwallpaperia.com/wp-content/uploads/2013/12/Guitar-Music.jpg",
+         "tags":["Blues rock","Hip-hop soul","Reggae"]
+      },
+      {
+         "idSala":5,
+         "nombre":"Rock hard Instrumental",
+         "img":"http://wallfinest.com/wp-content/uploads/2014/06/cool-love-music-wallpaper.jpg",
+         "tags":["Black metal","Rap metal","Funk metal"]
+      },
+	  {
+         "idSala":6,
+         "nombre":"Fuera de Línea",
+         "img":"http://server.omnia3.com/portal/cc-content/uploads/avatars/originalkiller19music-wallpapers-pictures-background-1.jpg",
+         "tags":["Música beat","Electro","Dubstep"]
+      },
+	  {
+         "idSala":7,
+         "nombre":"Reyes nunca morirán",
+         "img":"http://st-listas.20minutos.es/images/2012-10/344528/list_640px.jpg?1349285330",
+         "tags":["Jazz fusión","AcidSala jazz","Swing"]
+      },
+	  {
+         "idSala":8,
+         "nombre":"Fenómenos",
+         "img":"http://emisoracristianaonline.com/wp-content/uploads/2015/06/M%C3%BAsica-Cristiana.jpg",
+         "tags":["Rap","Gangsta","Crunk"]
+      },
+	  {
+         "idSala":9,
+         "nombre":"Colapso",
+         "img":"http://vimg.tu.tv/imagenes/vidSalaeos/m/u/musica-electronica-2014_imagenGrande1.jpg",
+         "tags":["Flamenco","Bluegrass","Música celta"]
+      },
+	  {
+         "idSala":10,
+         "nombre":"NidSalao de los Ecos",
+         "img":"http://blog.unidSalaoscontracorrupcionperu.org/wp-content/uploads/2011/03/musica.jpg",
+         "tags":["Tango","Ranchera","Mambo"]
+      },
+	  {
+         "idSala":11,
+         "nombre":"Legacia",
+         "img":"http://rincones.educarex.es/lyl/images/recursos/antologias/musica_poesia.jpg",
+         "tags":["Celtic punk","Dance punk","Art punk"]
+      },
+	  {
+         "idSala":12,
+         "nombre":"Soldados de Juguete",
+         "img":"http://pulsosocial.com/wp-content/uploads/2014/09/streaming.jpg",
+         "tags":["Synthpop","Pop barroco","Indie pop"]
+      },
+	  {
+         "idSala":13,
+         "nombre":"Inmune al amor",
+         "img":"http://3.bp.blogspot.com/-2YOTmE9Q_bk/UjjuclCggGI/AAAAAAAAAI4/vo80lHzlrfk/s1600/musica+amor.jpg",
+         "tags":["Bolero","Reguetón","Cumbia","Salsa"]
+      },
+	  {
+         "idSala":14,
+         "nombre":"Cambio de Mente",
+         "img":"http://vimg.tu.tv/imagenes/vidSalaeos/m/u/musica-electronica-urban-exdruble_imagenGrande1.jpg",
+         "tags":["Drum and bass","Trance","Ambient","New age"]
+      },
+	  {
+         "idSala":15,
+         "nombre":"Mejor que palabras",
+         "img":"http://images5.alphacoders.com/422/422146.jpg",
+         "tags":["J-Rock","J-pop","K-pop","Raga rock"]
+      },
+	  {
+         "idSala":16,
+         "nombre":"Pulso Estelar",
+         "img":"http://k35.kn3.net/taringa/1/8/0/6/3/1/4/nicokasmuz/25E.jpg?810",
+         "tags":["AcidSala jazz","Cool jazz","Dream pop","Indie rock"]
+      },
+	  {
+         "idSala":17,
+         "nombre":"Deseo de nada",
+         "img":"http://www.lagone.it/wp-content/uploads/2014/02/musica.jpg",
+         "tags":["Rock urbano","Post-rock","Rock instrumental","Rock psicodélico"]
+      },
+	  {
+         "idSala":18,
+         "nombre":"Corte Final",
+         "img":"https://napisadacerta.files.wordpress.com/2013/04/corridSalaa_musica1.jpg",
+         "tags":["Hardcore techno","2 step","Noise","House"]
+      },
+	  {
+         "idSala":19,
+         "nombre":"Fuego en la lluvia",
+         "img":"http://fondos-escritorio.org/wallpapers/2012/07/1360x768/logotipo-de-musica-rock-1375.jpg",
+         "tags":["Dance-pop","Garage rock","Power pop","D-beat"]
+      },
+	  {
+         "idSala":20,
+         "nombre":"Tributo de los 80",
+         "img":"http://images.forwallpaper.com/files/thumbs/preview/16/166723__the-beatles-beatles-beatles-music-legends-rock-talent-drawing_p.jpg",
+         "tags":["Rock urbano","Pop punk","Street punk","Blues rock"]
+      }
+   ]
+}

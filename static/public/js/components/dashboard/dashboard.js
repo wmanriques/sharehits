@@ -1,20 +1,22 @@
 angular.module("dashboard",[
-   "models.user",
-   "models.sala",
-   "crearsala"
+   "crearsala",
 ])
 .config(['$stateProvider',function ($sp) {
    $sp.
       state("dashboard",{
          url:"/",
          templateUrl:"/static/public/js/components/dashboard/dashboard.html",
-         controller:"dashboardController"
+         controller:"dashboardController",
+         resolve:{
+            salas : function (SalaService) {
+               return SalaService.getSalas();
+            }
+         }
       });
 }])
-.controller("dashboardController",["$scope","$mdDialog","User","Sala",function ($scope,$mdDialog,User,Sala) {
-   console.log(Sala.salas);
-   $scope.user  = User;
-   $scope.salas = Sala.salas;
+.controller("dashboardController",["$scope","$mdDialog","SalaService","salas",function ($scope,$mdDialog,SalaService,salas) {
+   $scope.salas = salas;
+
 
    $scope.crearSala = function(ev) {
       $mdDialog.show({
@@ -24,8 +26,9 @@ angular.module("dashboard",[
          clickOutsideToClose:true,
          targetEvent: ev
       })
-      .then(function(answer) {
-         console.log(answer);
+      .then(function(sala) {
+         console.log(sala);
+         salas.unshift(sala);
       }, function() {
          console.log("cancelo creo");
       });

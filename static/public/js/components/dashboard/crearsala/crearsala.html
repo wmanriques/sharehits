@@ -1,33 +1,75 @@
-<md-dialog aria-label="Crear Sala">
-  <form>
+<md-dialog aria-label="Crear Sala" flex=60>
+
   <md-toolbar>
     <div class="md-toolbar-tools">
       <h2>Crear Sala</h2>
       <span flex></span>
-      <md-button class="md-icon-button" ng-click="answer('not applicable')">
+      <md-button class="md-icon-button" ng-click="cancel()">
         <md-icon md-font-icon="fa fa-times" aria-label="Close dialog"></md-icon>
       </md-button>
     </div>
   </md-toolbar>
-  <md-dialog-content>
-    <div>
-      <p>
-         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-         Maxime deserunt nobis molestias, aut accusantium temporibus
-         harum, repudiandae sed quia! Neque sapiente reprehenderit nobis quod
-         quia, corporis, recusandae adipisci temporibus distinctio.
-      </p>
-    </div>
-  </md-dialog-content>
+   <form name="salaForm">
+     <md-dialog-content>
+         <md-input-container>
+            <label>Nombre de la sala</label>
+            <input
+            ng-model="sala.nombre"
+            name="nombre"
+            type="text"
+            md-maxlength=20
+            min-length=5
+            required>
+         </md-input-container>
 
-  <div class="md-actions" layout="row">
-    <span flex></span>
-    <md-button ng-click="answer('not useful')" class="md-primary">
-     Aceptar
-    </md-button>
-    <md-button ng-click="answer('useful')" class="md-primary">
-      Cancelar
-    </md-button>
-  </div>
-  </form>
+         <md-progress-circular
+            ng-show="spinner"
+            class="md-accent"
+            md-mode="indeterminate">
+         </md-progress-circular>
+
+         <md-input-container>
+            <label>Url de imagen</label>
+            <input
+            ng-model="sala.img"
+            name="img"
+            type="url"
+            ng-change="verifyImg(sala.img)"
+            required>
+         </md-input-container>
+         <div ng-messages="salaForm.img.$error">
+             <div ng-message="imgValid">Debe ingresar una url de imagen valida</div>
+         </div>
+         <md-input-container>
+            <label>Tags</label>
+            <input
+               type="text"
+               name="tag"
+               ng-model="tag"
+               minlength="3"
+               maxlength="10">
+
+         </md-input-container>
+
+         <md-button ng-click="agregarTag(tag)" class="md-primary">
+            agregar
+         </md-button>
+         <div ng-messages="salaForm.tag.$error">
+             <div ng-message="tagSize">Debe ingresar al menos un tag</div>
+         </div>
+         <div ng-repeat="tag in sala.tags track by $index">
+            <p>{{tag}}</p>
+         </div>
+      </md-dialog-content>
+
+      <div class="md-actions" layout="row">
+          <span flex></span>
+          <md-button ng-click="aceptar(sala)" ng-disabled="salaForm.$invalid" class="md-primary">
+           Aceptar
+          </md-button>
+          <md-button ng-click="cancel()" class="md-primary">
+            Cancelar
+          </md-button>
+      </div>
+   </form>
 </md-dialog>

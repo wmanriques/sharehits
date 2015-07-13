@@ -1,8 +1,12 @@
 angular.module("sharehits", [
         //Dependencias
+        "ngMessages",
         "ngMaterial",
         "ui.router",
         //Apps-modules
+        "utilService",
+        "userService",
+        "salaService",
         "sala",
         "dashboard"
 

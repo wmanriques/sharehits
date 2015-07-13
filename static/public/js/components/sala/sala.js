@@ -6,9 +6,12 @@ angular.module("sala",[])
             templateUrl:"/static/public/js/components/sala/sala.html",
             controller:"salaController",
             resolve:{
-               sala : function ($stateParams,Sala) {
-                  var index = Sala.salas.map(function (sala) {return sala.id;}).indexOf(parseInt($stateParams.salaId));
-                  return Sala.salas[index];
+               salas : function (SalaService) {
+                  return SalaService.getSalas();
+               },
+               sala : function ($stateParams,salas) {
+                  var index = salas.map(function (sala) {return sala.idSala;}).indexOf(parseInt($stateParams.salaId));
+                  return salas[index];
                }
             }
          });

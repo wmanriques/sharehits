@@ -38,35 +38,36 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
 2. Install pip
 	
-	sudo apt-get install python-pip)
+		sudo apt-get install python-pip
 
 3. Install virtualenv
 	
-	sudo pip install virtualwrapper
+		sudo pip install virtualwrapper
 
 
 4. Create a virtual environment with virtualenv
 	
-	virtualwrapper: mkvirtualenv venv
+		virtualwrapper: mkvirtualenv venv
 
 
 5. Active your virtual environment
 	
-	virtualwrapper: workon venv
+		virtualwrapper: workon venv
 
 
 6. Install requirements with pip 
-	pip install -r requirements.txt
+	
+		pip install -r requirements.txt
 
 
 7. Setup the Database
 
-    make all
+    	make all
 
 
 8. Run the server 
 	
-	python manage.py runserver
+		python manage.py runserver
 
 
 9. In your browser enter the address (localhost:8000/login)

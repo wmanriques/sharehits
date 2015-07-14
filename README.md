@@ -35,14 +35,41 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
 ### Linux
 1. Having installed python (Linux and MAC OSX is the default)
-2. Install pip (command: sudo apt-get install python-pip)
-3. Install virtualenv (command: sudo pip install virtualenv or virtualwrapper(recommended))
-4. Create a virtual environment with virtualenv (command: virtualenv venv or with virtualwrapper: mkvirtualenv venv(recommended))
-5. Active your virtual environment (command: source venv/bin/activate or with virtualwrapper: workon venv)
-6. Install requirements with pip (command: pip install -r requirements.txt)
-7. Create the DB: python manage.py migrate
-8. Run the application python manage.py runserver
-9. In your browser enter the address (localhost:8000/perfil)
+
+2. Install pip
+	
+	sudo apt-get install python-pip)
+
+3. Install virtualenv
+	
+	sudo pip install virtualwrapper
+
+
+4. Create a virtual environment with virtualenv
+	
+	virtualwrapper: mkvirtualenv venv
+
+
+5. Active your virtual environment
+	
+	virtualwrapper: workon venv
+
+
+6. Install requirements with pip 
+	pip install -r requirements.txt
+
+
+7. Setup the Database
+
+    make all
+
+
+8. Run the server 
+	
+	python manage.py runserver
+
+
+9. In your browser enter the address (localhost:8000/login)
 
 Warning : En caso de estar en ubuntu 14.04 , asegurarse de tener instalado el paquete python-dev (sudo apt-get install python-dev).
 

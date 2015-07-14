@@ -1,4 +1,6 @@
+from django.http import JsonResponse
 from django.http import Http404
+from django.core.exceptions import PermissionDenied
 
 from .models import Room, Song, Tag, User_Room
 from .serializers import RoomSerializer, TagSerializer, SongSerializer, UserRoomSerializer
@@ -9,6 +11,10 @@ from rest_framework import permissions
 
 
 class RoomPublicList(generics.ListCreateAPIView):
+	"""
+	Lista las todas las salas publicas creadas por los usuarios.
+	"""
+
 	queryset = Room.objects.all()
 	serializer_class = RoomSerializer
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
@@ -18,7 +24,20 @@ class RoomPublicList(generics.ListCreateAPIView):
 		return queryset.filter(mode='PUBLIC')
 
 
-class RoomUserList(generics.ListCreateAPIView):
+class IsCreatorMixin(object):
+
+	def dispatch(self, request, *args, **kwargs):
+		if self.request.user.username == self.kwargs.get('username'):
+			return super(IsCreatorMixin, self).dispatch(request, *args, **kwargs)
+		else:
+			return JsonResponse({'msg':'Usuario No autorizado'}, status=401)
+
+
+class RoomUserList(IsCreatorMixin, generics.ListCreateAPIView):
+	"""
+	Lista las todas las salas creadas por el usuario logueado.
+	"""
+
 	queryset = Room.objects.all()
 	serializer_class = RoomSerializer
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)

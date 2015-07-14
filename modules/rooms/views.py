@@ -18,6 +18,16 @@ class RoomPublicList(generics.ListCreateAPIView):
 		return queryset.filter(mode='PUBLIC')
 
 
+class RoomUserList(generics.ListCreateAPIView):
+	queryset = Room.objects.all()
+	serializer_class = RoomSerializer
+	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+	def get_queryset(self):
+		queryset = super(RoomUserList, self).get_queryset()
+		return queryset.filter(creator__username=self.kwargs.get('username'))
+
+
 class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Room.objects.all()
 	serializer_class = RoomSerializer

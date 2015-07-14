@@ -107,6 +107,7 @@ USE_TZ = True
 
 TEMPLATE_DIRS = (
     os.path.realpath(os.path.join(BASE_DIR, 'modules/perfil/templates/')),
+    os.path.realpath(os.path.join(BASE_DIR, 'modules/room/templates/')),
 )
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.realpath(os.path.join(BASE_DIR, 'media/'))

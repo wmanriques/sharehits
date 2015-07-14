@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.http import Http404
 from django.core.exceptions import PermissionDenied
+from django.views.generic import TemplateView, DetailView
 
 from .models import Room, Song, Tag, User_Room
 from .serializers import RoomSerializer, TagSerializer, SongSerializer, UserRoomSerializer
@@ -12,7 +13,7 @@ from rest_framework import permissions
 
 class RoomPublicList(generics.ListCreateAPIView):
 	"""
-	Lista las todas las salas publicas creadas por los usuarios.
+	Lista todas las salas publicas creadas por los usuarios.
 	"""
 
 	queryset = Room.objects.all()
@@ -35,7 +36,7 @@ class IsCreatorMixin(object):
 
 class RoomUserList(IsCreatorMixin, generics.ListCreateAPIView):
 	"""
-	Lista las todas las salas creadas por el usuario logueado.
+	Lista todas las salas creadas por el usuario logueado.
 	"""
 
 	queryset = Room.objects.all()
@@ -81,3 +82,7 @@ class User_RoomList(generics.ListCreateAPIView):
 	queryset = User_Room.objects.all()
 	serializer_class = UserRoomSerializer
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+class RoomDetailView(DetailView):
+	template_name = "room_detail.html"
+	model = Room

@@ -27,7 +27,7 @@ class Song(models.Model):
 
 
 class Tag(models.Model):
-	name = models.CharField(max_length=10)
+	name = models.CharField(max_length=50)
 
 	def __unicode__(self):
 		return u"tag : {}".format(self.name)

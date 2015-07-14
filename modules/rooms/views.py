@@ -34,7 +34,8 @@ class IsCreatorMixin(object):
 			return JsonResponse({'msg':'Usuario No autorizado'}, status=401)
 
 
-class RoomUserList(IsCreatorMixin, generics.ListCreateAPIView):
+#class RoomUserList(IsCreatorMixin, generics.ListCreateAPIView):  # in production
+class RoomUserList(generics.ListCreateAPIView):  # for test
 	"""
 	Lista todas las salas creadas por el usuario logueado.
 	"""

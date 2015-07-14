@@ -8,10 +8,14 @@ from rest_framework import generics
 from rest_framework import permissions
 
 
-class RoomList(generics.ListCreateAPIView):
+class RoomPublicList(generics.ListCreateAPIView):
 	queryset = Room.objects.all()
 	serializer_class = RoomSerializer
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+	def get_queryset(self):
+		queryset = super(RoomPublicList, self).get_queryset()
+		return queryset.filter(mode='PUBLIC')
 
 
 class RoomDetail(generics.RetrieveUpdateDestroyAPIView):

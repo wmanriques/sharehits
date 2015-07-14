@@ -64,6 +64,8 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
     	make all
 
+    7.1 input the password for the admin
+
 
 8. Run the server 
 	

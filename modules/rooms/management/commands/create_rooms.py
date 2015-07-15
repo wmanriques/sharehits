@@ -15,5 +15,5 @@ class Command(BaseCommand):
 			r.save()
 
 			for tag in room['tags']:
-				t = Tag.objects.create(name=tag)
-				r.tag.add(t)
+				t = Tag.objects.get_or_create(name=tag)
+				room.tag.add(t[0])

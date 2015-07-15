@@ -22,7 +22,7 @@ class RoomSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Room
-		fields = ('id', 'name', 'image', 'mode', 'creator', 'tag', 'date_creation')
+		fields = ('url', 'id', 'name', 'image', 'mode', 'creator', 'tag', 'date_creation')
 
 
 class SongSerializer(serializers.ModelSerializer):

@@ -17,8 +17,9 @@
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme">
+                   <md-button  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme">
                        <div class="cont-text-sala">
+                       
                         <h2>[[ sala.name ]]</h2>
 
                         <div class="cont-tags-rooms">
@@ -46,9 +47,9 @@
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in mis_salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme">
+                   <md-button  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme">
                        <div class="cont-text-sala">
-                        <h2>[[ sala.name ]]</h2>
+                        <h2><a href="[[ sala.url ]]">[[ sala.name ]]</a></h2>
                         <button class="md-raised md-button md-default-theme" ng-transclude=""><span class="ng-scope">[[ sala.mode ]]</span><div class="md-ripple-container"></div></button>
 
                         <div class="cont-tags-rooms">

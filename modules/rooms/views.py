@@ -100,7 +100,6 @@ def room_create(request):
 
 	if request.method == 'POST':
 		try:
-			
 			room = Room()
 			room.name = request.DATA['name']
 			room.image = request.DATA['image']
@@ -113,8 +112,10 @@ def room_create(request):
 				tag = tag.strip()
 				t = Tag.objects.get_or_create(name=tag)
 				room.tag.add(t[0])
-			
-			return JsonResponse({}, status=200)
+			serializer = RoomSerializer(room)
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+			#return JsonResponse({}, status=200)
+
 		except Exception, e:
 			print e
 			return JsonResponse({}, status=500)

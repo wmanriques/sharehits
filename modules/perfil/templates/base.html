@@ -53,6 +53,17 @@
       <script src="{% static 'public/js/sharehits.js' %}"></script>-->
       <script src="{% static 'public/lib/jquery/dist/jquery.min.js' %}"></script>
       <script src="{% static 'public/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+      <script type="text/javascript">
+         var app = angular.module("sharehits", [
+              "ngMaterial",
+          ])
+         .config(function($interpolateProvider){
+                $interpolateProvider.startSymbol('[[').endSymbol(']]');
+         });
+         app.constant('user', {
+             username: "{{ user.username }}",
+         });
+      </script>
       <script src="{% static 'public/js/app.js' %}"></script>
    </body>
 

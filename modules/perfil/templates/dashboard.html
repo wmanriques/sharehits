@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <md-button ng-click='crearSala()'  class="md-raised md-warn btn-create-room">Crear sala</md-button>
+    <md-button class="md-raised md-warn btn-create-room" data-toggle="modal" data-target="#myModal">Crear sala</md-button>
    <!-- <md-button ng-click='logOut()' >crear sala</md-button> -->
     <md-tabs md-dynamic-height md-border-bottom class="contenedor-tabs">
       <md-tab label="Salas publicas">
@@ -42,5 +42,104 @@
       </md-tab>
 
     </md-tabs>
+
+<!-- Modal -->
+<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content offset1">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Crear Sala</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-font-icon="fa fa-times" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+   <form name="salaForm" style="padding: 10px">
+     <md-dialog-content>
+         <md-input-container>
+            <label>Nombre de la sala</label>
+            <input
+            ng-model="sala.nombre"
+            name="nombre"
+            type="text"
+            md-maxlength=20
+            min-length=5
+            required>
+         </md-input-container>
+
+         <md-progress-circular
+            ng-show="spinner"
+            class="md-accent"
+            md-mode="indeterminate">
+         </md-progress-circular>
+
+         <md-input-container>
+            <label>Url de imagen</label>
+            <input
+            ng-model="sala.img"
+            name="img"
+            type="url"
+            ng-change="verifyImg(sala.img)"
+            required>
+         </md-input-container>
+         <div ng-messages="salaForm.img.$error">
+             <div ng-message="imgValid">Debe ingresar una url de imagen valida</div>
+         </div>
+         <md-input-container>
+            <label>Tags</label>
+            <input
+               type="text"
+               name="tag"
+               ng-model="tag"
+               minlength="3"
+               maxlength="10">
+
+         </md-input-container>
+
+         <md-button ng-click="agregarTag(tag)" class="md-primary">
+            agregar
+         </md-button>
+         <div ng-messages="salaForm.tag.$error">
+             <div ng-message="tagSize">Debe ingresar al menos un tag</div>
+         </div>
+         <div ng-repeat="tag in sala.tags track by $index">
+            <p>{{tag}}</p>
+         </div>
+      </md-dialog-content>
+
+      <div class="md-actions" layout="row">
+          <span flex></span>
+          <md-button ng-click="aceptar(sala)" ng-disabled="salaForm.$invalid" class="md-primary">
+           Aceptar
+          </md-button>
+          <md-button ng-click="cancel()" class="md-primary">
+            Cancelar
+          </md-button>
+      </div>
+   </form>
+   </div>
+   </div>
+</div>
+
   
 {% endblock %}

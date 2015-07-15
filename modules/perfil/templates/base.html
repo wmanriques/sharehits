@@ -11,9 +11,27 @@
       <title>ShareHits</title>
    </head>
    <body ng-controller="mainController">
-
-      	{% block content %}
-         {% endblock %}
+      <div layout="column" layout-fill>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <span>ShareHits</span>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <md-button>
+              {% if user.is_authenticated %}
+                  <p class="name-user">{{ user.first_name }}
+               {% endif %}
+            </md-button>
+          </div>
+        </md-toolbar>
+        <md-content>
+          {% block content %}
+             
+         
+            {% endblock %}
+        </md-content>
+      </div>
+   	
 
 
 
@@ -25,13 +43,14 @@
       <script src="{% static 'public/lib/angular-aria/angular-aria.min.js' %}"></script>
       <script src="{% static 'public/lib/angular-material/angular-material.min.js' %}"></script>
       <!-- App -->
-      <script src="{% static 'public/js/common/services/util.js' %}"></script>
+      <!--<script src="{% static 'public/js/common/services/util.js' %}"></script>
       <script src="{% static 'public/js/common/services/user.js' %}"></script>
       <script src="{% static 'public/js/common/services/sala.js' %}"></script>
       <script src="{% static 'public/js/components/sala/sala.js' %}"></script>
       <script src="{% static 'public/js/components/dashboard/crearsala/crearsala.js' %}"></script>
       <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>
-      <script src="{% static 'public/js/sharehits.js' %}"></script>
+      <script src="{% static 'public/js/sharehits.js' %}"></script>-->
+      <script src="{% static 'public/js/app.js' %}"></script>
    </body>
 
 </html>

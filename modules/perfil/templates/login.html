@@ -1,26 +1,43 @@
-
-{% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block content %}
+<!DOCTYPE html>
+<html ng-app="sharehits">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="{% static 'public/lib/components-font-awesome/css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
+      <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
 
-<div layout="column " class="contenedor-login" layout-align="center center">
-    <div class="background-images bimg1" ng-class="{opacityLogin:imgs[0]}"></div>
-    <div class="background-images bimg2" ng-class="{opacityLogin:imgs[1]}"></div>
-    <div class="background-images bimg3" ng-class="{opacityLogin:imgs[2]}"></div>
-    <div class="box-login">
-        <h1>Sharehits! Playlist Colectivo</h1>
-        <div layout=column layout-align="space-around center">
-            <img src="{% static 'public/img/facebook-person.jpg' %}"/>
-            <a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">
-                <!--<md-button class="md-raised">
-                    Join with facebook
-                </md-button>-->
-                <md-button class="md-raised md-primary btn-login">Join with facebook</md-button>
-            </a>
-            <!--<md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>-->
+      <title>ShareHits</title>
+   </head>
+   <body ng-controller="mainController">
+        <div layout="column " class="contenedor-login" layout-align="center center">
+            <div class="background-images bimg1" ng-class="{opacityLogin:imgs[0]}"></div>
+            <div class="background-images bimg2" ng-class="{opacityLogin:imgs[1]}"></div>
+            <div class="background-images bimg3" ng-class="{opacityLogin:imgs[2]}"></div>
+            <div class="box-login">
+                <h1>Sharehits! Playlist Colectivo</h1>
+                <div layout=column layout-align="space-around center">
+                    <img src="{% static 'public/img/facebook-person.jpg' %}"/>
+                    <a href="{% url 'social:begin' 'facebook' %}" class="btn-facebook">
+                        <!--<md-button class="md-raised">
+                            Join with facebook
+                        </md-button>-->
+                        <md-button class="md-raised md-primary btn-login">Join with facebook</md-button>
+                    </a>
+                    <!--<md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular>-->
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-{% endblock %}
+      <!-- LIBS -->
+      <script src="{% static 'public/lib/angular/angular.min.js' %}"></script>
+      <script src="{% static 'public/lib/angular-messages/angular-messages.min.js' %}"></script>
+      <script src="{% static 'public/lib/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
+      <script src="{% static 'public/lib/angular-animate/angular-animate.min.js' %}"></script>
+      <script src="{% static 'public/lib/angular-aria/angular-aria.min.js' %}"></script>
+      <script src="{% static 'public/lib/angular-material/angular-material.min.js' %}"></script>
+      <!-- App -->
+      <script src="{% static 'public/js/app.js' %}"></script>
+   </body>
+

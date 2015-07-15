@@ -2,47 +2,12 @@
 {% load staticfiles %}
 
 {% block content %}
-<div ng-app='sharehits'>
-	<div layout="column" class="header-login">
-		<md-toolbar>
-		      <div class="md-toolbar-tools">
-		        <h2>
-		          <a ui-sref="dashboard"><span>Sharehits</span></a>
-		        </h2>
-					<span flex></span>
-					<div class="nav">
-						<ul>
-							<li>
-							{% if user.is_authenticated %}
-								<p class="name-user">{{ user.first_name }}</p>
-                                <md-menu class="cont-btn-logout"  md-offset="0 30">
-								<!--<md-button aria-label="Settings" class="btn-logout" >
-									<md-icon  md-menu-origin md-font-icon="fa fa-cog"></md-icon>
-								</md-button>-->
-                                    <img src="{{user.profile.photo}}" class="dashboard-image" ng-click="$mdOpenMenu()">
-                                    <md-menu-content width="3">
-                                            <md-menu-item>
-                                                <md-button href="{% url 'auth_logout' %}">
-                                                     <md-icon md-menu-align-target md-font-icon="fa fa-power-off">
-                                                        Logout
-                                                    </md-icon>
-                                                </md-button>
-                                            </md-menu-item>
-                                    </md-menu-content>
-							    </md-menu>
+<md-list>
+  <md-list-item class="md-2-line" ng-repeat="item in salas">
+    <div class="md-list-item-text">
+    holi
+    </div>
 
-							{% endif %}
-
-
-							</li>
-
-						</ul>
-					</div>
-				</div>
-        </md-toolbar>
-	</div>
-
-	<div ui-view>
-	</div>
-</div>
+  </md-list-item>
+</md-list>
 {% endblock %}

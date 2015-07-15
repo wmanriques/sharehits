@@ -11,7 +11,7 @@ from rest_framework import generics
 from rest_framework import permissions
 
 
-class RoomPublicList(generics.ListCreateAPIView):
+class RoomPublicList(generics.ListAPIView):
 	"""
 	Lista todas las salas publicas creadas por los usuarios.
 	"""

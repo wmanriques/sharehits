@@ -21,8 +21,8 @@
                        <div class="cont-text-sala">
                         <h2>{{ sala.nombre }}</h2>
 
-                        <div ng-repeat="tag in sala.tags">
-                           <p>{{tag}}</p>
+                        <div class="cont-tags-rooms">
+                           <md-button ng-repeat="tag in sala.tags" class="md-raised">{{tag}}</md-button>
                         </div>
                        </div>
                    </md-button>

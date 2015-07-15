@@ -2,12 +2,45 @@
 {% load staticfiles %}
 
 {% block content %}
-<md-list>
-  <md-list-item class="md-2-line" ng-repeat="item in salas">
-    <div class="md-list-item-text">
-    holi
-    </div>
 
-  </md-list-item>
-</md-list>
+    <md-button ng-click='crearSala()'  class="md-raised md-warn btn-create-room">Crear sala</md-button>
+   <!-- <md-button ng-click='logOut()' >crear sala</md-button> -->
+    <md-tabs md-dynamic-height md-border-bottom class="contenedor-tabs">
+      <md-tab label="Salas publicas">
+        <md-content class="md-padding">
+
+            <md-input-container flex class="cont-input-search">
+              <label>Nombre de sala o genero</label>
+              <input ng-model="nameRoom">
+            </md-input-container>
+
+           <!--<div layout="row" layout-align="center center">-->
+             <md-list class="list-salas">
+                <md-list-item ng-repeat="sala in salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
+                   <md-button  ui-sref="sala({salaId:sala.id})" class="md-list-item-text md-button md-default-theme">
+                       <div class="cont-text-sala">
+                        <h2>[[ sala.name ]]</h2>
+
+                        <div class="cont-tags-rooms">
+                           <md-button ng-repeat="t in sala.tag" class="md-raised">[[ t.name ]]</md-button>
+                        </div>
+                       </div>
+                   </md-button>
+                   <md-divider ng-if="!$last"></md-divider>
+                </md-list-item>
+             </md-list>
+
+           <!--</div>-->
+        </md-content>
+      </md-tab>
+
+      <md-tab label="Mis salas">
+        <md-content class="md-padding">
+          <p >Mis salas</p>
+          <button > wat</button>
+        </md-content>
+      </md-tab>
+
+    </md-tabs>
+  
 {% endblock %}

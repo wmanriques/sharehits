@@ -11,3 +11,4 @@ lib
 bin
 scripts
 pip-selfcheck.json
+npm-debug.log

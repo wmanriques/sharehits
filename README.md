@@ -27,8 +27,8 @@ Repositorio de la plataforma colaborativa "Sharehits"
    - Para Python >= 2.7.9 ya esta incluido.
    - Para otras versiones descargar [get-pip.py] (https://bootstrap.pypa.io/get-pip.py) e instalar `> python get-pip.py`
 3. Instalar **virtualenv** o **virtualwrapper** `> pip install virtualenv`
-4. Crear el virtual environment: ubicarse en el directorio superior del proyecto Sharehits/ en la consola `> virtualenv venv`
-5. Activar el enviroment: ubicarse en venv/Scripts/ `> activate`
+4. Crear el virtual environment: ubicarse en el directorio superior del proyecto Sharehits/ en la consola `> virtualenv sharehits`
+5. Activar el enviroment: ubicarse en ShareHits/Scripts/ `> activate`
 6. Instalar lo **requerimientos**: ubicarse en Sharehits/ `> pip install -r requirements.txt`
 7. Correr la aplicacion: `> python manage.py runserver`
 8. En el browser ingresar: [http://localhost:8000/login] (http://localhost:8000/login)

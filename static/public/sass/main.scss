@@ -52,7 +52,7 @@
   margin: 3px;
   background-size: cover;
   background-position: center;
-  min-height: 271px;
+  height: 271px;
   a{
     width: 100%;
     height: 100%;
@@ -66,6 +66,26 @@
       text-align: left;
       font-size: 28px;
       padding-left: 20px;
+    }
+  }
+  .cont-text-sala{
+    padding: 10px;
+    background: rgba(132, 132, 132, 0.13);
+    height: 100%;
+//    position: relative;
+    .cont-tags-rooms{
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 10px;
+      left: 10px;
+      right: 0;
+      overflow: hidden;
+      .md-raised{
+        background-color: rgba(255, 108, 64, 0.6);
+        color:white;
+        float: left;
+      }
     }
   }
 }
@@ -142,10 +162,7 @@ body{
   }
 }
 
-.cont-text-sala{
-  padding: 10px;
-  background: rgba(132, 132, 132, 0.13);
-}
+
 .cont-rows-shareHist{
   text-align: center;
 }

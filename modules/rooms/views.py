@@ -1,7 +1,8 @@
 from django.http import JsonResponse
 from django.http import Http404
+from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, CreateView
 
 from .models import Room, Song, Tag, User_Room
 from .serializers import RoomSerializer, TagSerializer, SongSerializer, UserRoomSerializer
@@ -9,6 +10,9 @@ from .serializers import RoomSerializer, TagSerializer, SongSerializer, UserRoom
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import permissions
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
 class RoomPublicList(generics.ListAPIView):
@@ -87,3 +91,30 @@ class User_RoomList(generics.ListCreateAPIView):
 class RoomDetailView(DetailView):
 	template_name = "room_detail.html"
 	model = Room
+
+@api_view(['POST'])
+def room_create(request):
+	"""
+	create a new room.
+	"""
+
+	if request.method == 'POST':
+		try:
+			
+			room = Room()
+			room.name = request.DATA['name']
+			room.image = request.DATA['image']
+			room.mode = request.DATA['mode']
+			room.creator = User.objects.get(username=request.DATA['creator'])
+			room.save()
+			tags = request.DATA['tags']
+			tags = tags.split(',')
+			for tag in tags:
+				tag = tag.strip()
+				t = Tag.objects.get_or_create(name=tag)
+				room.tag.add(t[0])
+			
+			return JsonResponse({}, status=200)
+		except Exception, e:
+			print e
+			return JsonResponse({}, status=500)

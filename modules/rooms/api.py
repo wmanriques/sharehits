@@ -96,7 +96,11 @@ def room_create(request):
 
 	if request.method == 'POST':
 		try:
-			room = Room()
+			try:
+				room = Room.objects.get(name=request.DATA['name'])
+			except:
+				room = Room()
+			
 			room.name = request.DATA['name']
 			room.image = request.DATA['image']
 			room.mode = request.DATA['mode']

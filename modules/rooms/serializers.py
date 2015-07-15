@@ -12,7 +12,9 @@ class RoomSerializer(serializers.ModelSerializer):
         slug_field='username'
      )
 	tag = serializers.SlugRelatedField(
-        slug_field='tag'
+		many=True,
+		read_only=True,
+        slug_field='name'
      )
 	#tag = serializers.HyperlinkedIdentityField('tag', view_name='tag-list')
 

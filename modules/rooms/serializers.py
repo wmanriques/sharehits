@@ -28,7 +28,7 @@ class RoomSerializer(serializers.ModelSerializer):
 class SongSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Song
-		fields = ('id', 'title', 'url', 'room')
+		fields = ('id', 'title', 'url', 'room', 'user_room')
 
 
 class UserRoomSerializer(serializers.ModelSerializer):

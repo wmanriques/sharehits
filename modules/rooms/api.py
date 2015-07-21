@@ -2,6 +2,7 @@ from django.http import JsonResponse
 from django.http import Http404
 from django.contrib.auth.models import User
 from django.core.exceptions import PermissionDenied
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import Room, Song, Tag, User_Room
 from .serializers import RoomSerializer, TagSerializer, SongSerializer, UserRoomSerializer
@@ -123,3 +124,31 @@ def room_create(request):
 		except Exception, e:
 			print e
 			return JsonResponse({}, status=500)
+
+
+@api_view(['POST'])
+def song_create(request):
+	"""
+	user in room create a song.
+	"""
+
+	if request.method == 'POST':
+		print "==========="
+		print request.DATA
+		
+
+		exist_user_in_room = User_Room.objects.filter(user__id=request.DATA['user_id'], room__id=request.DATA['room_id'])
+
+		if exist_user_in_room:
+			song_in_room = Song.objects.filter(title=request.DATA['song_title'], room__id=request.DATA['room_id'])
+			if song_in_room:
+				return JsonResponse({'msg':'Song exist in room'}, status=409)	
+			else:
+				song = Song(title=request.DATA['song_title'], url=request.DATA['song_url'], room=Room.objects.get(id=request.DATA['room_id']), user_room=User_Room.objects.get(user__id=request.DATA['user_id'], room__id=request.DATA['room_id']))
+				song.save()
+				serializer = SongSerializer(song)
+				
+				return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+		else:
+			return JsonResponse({'msg':'User no exist in room'}, status=403)

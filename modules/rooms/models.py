@@ -18,12 +18,13 @@ class Room(models.Model):
 
 
 class Song(models.Model):
-	name = models.CharField(max_length=20)
-	singer = models.CharField(max_length=20)
-	room = models.ForeignKey('User_Room')
+	title = models.CharField(max_length=150)
+	url = models.URLField()
+	room = models.ForeignKey(Room)
+	user_room = models.ForeignKey('User_Room')  # esta enlazado a user room, porque necesito saber que usuario de que room agrego esta cancion
 
 	def __unicode__(self):
-		return u"{} de {}".format(self.name, self.singer)
+		return u"{}".format(self.title)
 
 
 class Tag(models.Model):

@@ -70,10 +70,14 @@ class TagDetail(generics.RetrieveUpdateDestroyAPIView):
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
-class SongList(generics.ListCreateAPIView):
+class SongListRoom(generics.ListCreateAPIView):
 	queryset = Song.objects.all()
 	serializer_class = SongSerializer
 	permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+	def get_queryset(self):
+		queryset = super(SongListRoom, self).get_queryset()
+		return queryset.filter(room_id=self.kwargs.get('room_id'))
 
 
 class SongDetail(generics.RetrieveUpdateDestroyAPIView):

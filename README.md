@@ -90,4 +90,9 @@ Warning : En caso de estar en ubuntu 14.04 , asegurarse de tener instalado el pa
 ## Documentacion de desarrollo
  https://docs.google.com/document/d/1KsqAoenvSD4GTlpsWedAQR4zLAWLv8_Ofa7Tj0GpxF0
 
+
+## NOTA:
+	Actualmente existen las siguientes ramas:
+		- master 
+		- angular (integrado back y front)
  **by: @wil_jm** && friends.

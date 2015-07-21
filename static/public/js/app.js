@@ -12,7 +12,7 @@ app.service('RoomUserFactory', ['$http', 'user', function ($http, user) {
 	user_auth="alexander"
     return {
         getAll: function () {
-            return $http.get('http://localhost:8000/api/rooms/'+user_auth);
+            return $http.get('http://localhost:8000/api/'+user_auth+'/rooms/');
         }
     }
 }]);

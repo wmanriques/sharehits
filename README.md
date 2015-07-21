@@ -66,6 +66,17 @@ Repositorio de la plataforma colaborativa "Sharehits"
 
     7.1 input the password for the admin
 
+    **Note: **  
+
+    En caso que no puedan correr el comando make, correr independientemente los siguientes comandos:
+
+	    rm -f db.sqlite3
+		python manage.py syncdb --noinput
+		python manage.py migrate --noinput
+		python ./manage.py createsuperuser --username=admin --email=admin@example.com
+		python manage.py create_users
+		python manage.py create_rooms
+
 
 8. Run the server 
 	
@@ -79,4 +90,9 @@ Warning : En caso de estar en ubuntu 14.04 , asegurarse de tener instalado el pa
 ## Documentacion de desarrollo
  https://docs.google.com/document/d/1KsqAoenvSD4GTlpsWedAQR4zLAWLv8_Ofa7Tj0GpxF0
 
+
+## NOTA:
+	Actualmente existen las siguientes ramas:
+		- master 
+		- angular (integrado back y front)
  **by: @wil_jm** && friends.

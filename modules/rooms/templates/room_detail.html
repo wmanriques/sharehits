@@ -90,12 +90,16 @@
                             </md-list>
                         </div>
                     </md-content>
+                    <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+  <b>USERS</b>
+  <div id="users"></div>
+</div>
                 </div>
 
             </div>
         </div>
       </div>
-    
+     
        <div class="modal fade" id="modal-search-song" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
            <div class="modal-dialog" role="document">
                <div class="modal-content">
@@ -281,6 +285,21 @@
                });
            });
            
+       </script>
+
+      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+      <script type="text/javascript">
+      var socket = io.connect('http://localhost:3000');
+      socket.emit('adduser', "{{user.username}}", "{{room.id}}");
+
+      socket.on('updateusers', function(data) {
+        console.log("entro");
+      $('#users').empty();
+      $.each(data, function(key, value) {
+        $('#users').append('<div>' + key + '</div>');
+      });
+    });
        </script>
    </body>
 

@@ -37,6 +37,6 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
     $scope.in_room = function(roomid){
         console.log(username);
         console.log(roomid);
-        socket.emit('adduser', username, roomid); 
+        //socket.emit('adduser', username, roomid); 
     }
 });

@@ -15,7 +15,8 @@
             </md-input-container>
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">
+                   <!--<a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">-->
+                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme">
                       <input type="hidden" value="[[sala.id]]"/>
                        <div class="cont-text-sala">
                        
@@ -42,7 +43,8 @@
             </md-input-container>
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in mis_salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">
+                   <!--<a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">-->
+                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme">
                       <input type="hidden" value="[[sala.id]]"/>
                        <div class="cont-text-sala">
                        

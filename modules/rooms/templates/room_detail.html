@@ -287,20 +287,20 @@
            
        </script>
 
-      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+      <!--<script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
       <script type="text/javascript">
+      $(document).ready(function () {
       var socket = io.connect('http://localhost:3000');
       socket.emit('adduser', "{{user.username}}", "{{room.id}}");
 
-      socket.on('updateusers', function(data) {
-        console.log("entro");
-      $('#users').empty();
-      $.each(data, function(key, value) {
-        $('#users').append('<div>' + key + '</div>');
+      socket.on('updateusers', function(roomid, users) {
+          console.log(roomid);
+          console.log(users);
+        });
       });
-    });
        </script>
+       -->
    </body>
 
 </html>

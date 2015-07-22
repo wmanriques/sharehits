@@ -100,8 +100,7 @@ def room_create(request):
 	"""
 
 	if request.method == 'POST':
-		print "000000"
-		print request.DATA
+		
 		try:
 			try:
 				room = Room.objects.get(name=request.DATA['name'])
@@ -120,6 +119,9 @@ def room_create(request):
 				if tag != "":
 					t = Tag.objects.get_or_create(name=tag)
 					room.tag.add(t[0])
+			
+			User_Room.objects.create(user=room.creator, room=room, mode="ADMIN")
+
 			serializer = RoomSerializer(room, context={'request': request})
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 			#return JsonResponse({}, status=200)

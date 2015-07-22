@@ -13,6 +13,15 @@ class Room(models.Model):
 	tag = models.ManyToManyField('Tag')
 	date_creation = models.DateTimeField(auto_now_add=True)
 
+	"""
+	def save(self, *args, **kwargs):
+		print self.creator.username
+		print self.name
+		print USER_ROL_MODES
+		User_Room.objects.create(user=self.creator, room=self, mode="ADMIN")
+		super(Room, self).save(*args, **kwargs)
+	"""
+
 	def __unicode__(self):
 		return u"{} de {}".format(self.name, self.creator.first_name)
 

@@ -126,4 +126,14 @@ angular.module("sala",[])
               songAuthor:"Jim Croce"
           }
       ];
+
+      $scope.toggleBox=[false,false,false];
+      $scope.toggleBoxFunc= function (num){
+            if($scope.toggleBox[num]==true){$scope.toggleBox[num]=false;}
+            else{
+                $scope.toggleBox=[false,false,false];
+               $scope.toggleBox[num]=true;
+            }
+            console.log(num,$scope.toggleBox[num]);
+       };
    }]);

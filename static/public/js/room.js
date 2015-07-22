@@ -1,6 +1,6 @@
 
 app.controller("roomController",["$scope", "ROOM_ID",function ($scope, ROOM_ID) {
-      sala = {
+      var sala = {
         "id": 4,
         "name": "Sonada Acustica",
         "image": "http://hdwallpaperia.com/wp-content/uploads/2013/12/Guitar-Music.jpg",
@@ -104,7 +104,16 @@ app.controller("roomController",["$scope", "ROOM_ID",function ($scope, ROOM_ID) 
           }
       ];
       $scope.songs = [];
-    
+
+      $scope.toggleBox=[false,false,false];
+      $scope.toggleBoxFunc= function (num){
+            if($scope.toggleBox[num]==true){$scope.toggleBox[num]=false;}
+            else{
+                $scope.toggleBox=[false,false,false];
+               $scope.toggleBox[num]=true;
+            }
+            console.log(num,$scope.toggleBox[num]);
+       };
 //    var iframe = document.querySelector('#sc-player');
 //    var scPlayerSrcPrefix = "https://w.soundcloud.com/player/?url=";
 //    var scPlayerOPtions = "&hide_related=true&visual=true&auto_play=true&download=false&buying=false&sharing=false";

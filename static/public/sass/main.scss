@@ -271,6 +271,11 @@ body{
   }
   .over-list{
       height: 360px;
+      background: none;
+      md-list md-list-item.md-3-line .md-list-item-text h4{
+        color: white;
+        text-shadow: 1px 1px 2px #999;
+      }
   }
 }
 .cont-playlist{
@@ -307,6 +312,10 @@ body{
 }
 .md-open-menu-container.md-active{
   margin-top: 28px;
+}
+.box-room-general .box-head{
+  color: white;
+  padding-bottom: 5px;
 }
 @media (max-width: 1290px) {
     .box-room-general{

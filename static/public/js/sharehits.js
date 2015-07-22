@@ -9,13 +9,11 @@ angular.module("sharehits", [
         "salaService",
         "sala",
         "dashboard"
-
-
     ])
     .config(['$urlRouterProvider', function ($urp) {
         $urp.otherwise("/");
     }])
-    .controller('mainController',['$scope', function($scope){
+    .controller('mainController',['$scope','$http', function($scope,$http){
          $scope.safeApply = function (fn) {
             var phase;
             if(this.$root!==null){

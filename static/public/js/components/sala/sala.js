@@ -126,4 +126,8 @@ angular.module("sala",[])
               songAuthor:"Jim Croce"
           }
       ];
+      $scope.toggleMemberVar=false;
+      $scope.toggleMember= function (){
+            $scope.toggleMemberVar=!$scope.toggleMemberVar;
+      };
    }]);

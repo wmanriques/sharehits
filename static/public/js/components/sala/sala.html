@@ -10,7 +10,8 @@
     </md-input-container>
     <h1 class="name-room">{{ sala.nombre }}</h1>
     <div class="cont-rows-shareHist">
-        <md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3">
+        <md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3"
+                    ng-class="{'fadeInOut':toggleMemberVar}">
             <h4>Miembros</h4>
             <div class="over-list">
                 <md-list layout-padding>
@@ -25,6 +26,7 @@
         </md-content>
 
         <md-content class="row-room-shareHist box-room-general content-chat md-whiteframe-z3">
+            <div class="tag-member" ng-click="toggleMember()">Miembros</div>
             <md-list class="content-list-message" layout-padding>
                 <md-list-item class="md-3-line" ng-repeat="message in messages">
                     <img ng-src="{{ message.face }}" class="md-avatar" alt="{{ message.who }}">

@@ -8,8 +8,8 @@ app.service('RoomFactory', ['$http', function ($http) {
 }]);
 
 app.service('RoomUserFactory', ['$http', 'user', function ($http, user) {
-	//user_auth=user.username
-	user_auth="alexander"
+	user_auth=user.username
+	//user_auth="alexander"
     return {
         getAll: function () {
             return $http.get('http://localhost:8000/api/'+user_auth+'/rooms/');
@@ -29,7 +29,7 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
     RoomUserFactory.getAll().then(function(res){
         $scope.mis_salas = [];
         res.data.forEach(function(item){
-        	console.log(item);
+        	console.log("dd",item);
         	$scope.mis_salas.push(item);
         })
         return $scope;

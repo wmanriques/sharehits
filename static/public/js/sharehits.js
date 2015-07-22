@@ -9,8 +9,6 @@ angular.module("sharehits", [
         "salaService",
         "sala",
         "dashboard"
-
-
     ])
     .constant('user', {
              username: "{{ user.username }}"

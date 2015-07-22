@@ -100,6 +100,8 @@ def room_create(request):
 	"""
 
 	if request.method == 'POST':
+		print "000000"
+		print request.DATA
 		try:
 			try:
 				room = Room.objects.get(name=request.DATA['name'])
@@ -108,16 +110,17 @@ def room_create(request):
 			
 			room.name = request.DATA['name']
 			room.image = request.DATA['image']
-			room.mode = request.DATA['mode']
+			room.mode = (request.DATA['mode']).upper()
 			room.creator = User.objects.get(username=request.DATA['creator'])
 			room.save()
 			tags = request.DATA['tags']
 			tags = tags.split(',')
 			for tag in tags:
 				tag = tag.strip()
-				t = Tag.objects.get_or_create(name=tag)
-				room.tag.add(t[0])
-			serializer = RoomSerializer(room)
+				if tag != "":
+					t = Tag.objects.get_or_create(name=tag)
+					room.tag.add(t[0])
+			serializer = RoomSerializer(room, context={'request': request})
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 			#return JsonResponse({}, status=200)
 

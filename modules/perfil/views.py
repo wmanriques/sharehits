@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import TemplateView
 
+from modules.rooms.models import Tag
+
 from braces.views import LoginRequiredMixin
 
 
@@ -13,6 +15,15 @@ class LoginTemplateView(TemplateView):
 
 class DashboardTemplateView(LoginRequiredMixin, TemplateView):
 	template_name = "dashboard.html"
+
+	def get_context_data(self, **kwargs):
+		context = super(DashboardTemplateView, self).get_context_data(**kwargs)
+		
+		tags = []
+		for t in Tag.objects.all():
+			tags.append(t.name.encode('utf8'))
+		context['tags'] = tags
+		return context
 
 
 def logout_view(request):

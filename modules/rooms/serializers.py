@@ -18,7 +18,8 @@ class RoomSerializer(serializers.ModelSerializer):
      )
 	#tag = serializers.StringRelatedField(many=True)
 	tag = TagSerializer(many=True, read_only=True)
-	#tag = serializers.HyperlinkedIdentityField('tag', view_name='tag-list')
+	#tag = serializers.HyperlinkedRelatedField('tag', view_name='api-tag-list', many=True, read_only=True)
+	#tag = serializers.HyperlinkedIdentityField('tag', view_name='api-tag-list', many=True, read_only=True)
 
 	class Meta:
 		model = Room

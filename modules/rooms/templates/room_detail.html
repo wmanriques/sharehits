@@ -101,19 +101,20 @@
 
                     <md-content class="reproduct-music box-room-general md-whiteframe-z3"
                                 ng-class="{'fadeInOut':toggleBox[1]}">
-                        <iframe id="player" width="100%" height="144" scrolling="no" frameborder="no" src = "https://w.soundcloud.com/player/?url=https://soundcloud.com/kygo/syn-cole-miami-82-kygo-remix&hide_related=true&visual=true"></iframe>
+                        <iframe id="sc-player" width="100%" height="144" scrolling="no" frameborder="no">
+                        </iframe>
                     </md-content>
 
                     <md-content class="cont-playlist box-room-general md-whiteframe-z3"
                                 ng-class="{'fadeInOut':toggleBox[2]}">
                         <h4>Playlist</h4>
                         <div class="over-list">
-                            <md-list layout-padding>
-                                <md-list-item class="md-3-line" ng-repeat="song in songs">
+                            <md-list class="cont-songs" layout-padding>
+                                <!--<md-list-item class="md-3-line" ng-repeat="song in songs">
                                     <div class="md-list-item-text">
                                         <h4>{{ song.title }} - {{ song.url }}</h4>
                                     </div>
-                                </md-list-item>
+                                </md-list-item>-->
                             </md-list>
                         </div>
                     </md-content>
@@ -295,7 +296,7 @@
            }, 5000);
            
            
-           /* Buscar cancion en soundcloud*/
+           /* Buscar cancion en soundcloud */
            $("#input-search-song").keypress(function(e) {
                if (e.which == 13) {
                    var query = $("#input-search-song").val();

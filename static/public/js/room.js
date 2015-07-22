@@ -103,7 +103,7 @@ app.controller("roomController",["$scope", "ROOM_ID",function ($scope, ROOM_ID) 
             notes: " I'll be in your neighborhood doing errands"
           }
       ];
-      $scope.songs = [];
+      $scope.songs = [{}];
 
       $scope.toggleBox=[false,false,false];
       $scope.toggleBoxFunc= function (num){

@@ -8,6 +8,9 @@
       <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
+      <link rel="stylesheet" href="{% static 'vendor/jquery-ui/jquery-ui.css' %}">
+      <link rel="stylesheet" href="{% static 'vendor/jquery-ui/bootstrap-jquery-ui.css' %}">
+
 
       <title>ShareHits</title>
    </head>
@@ -54,6 +57,8 @@
       <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>
       <script src="{% static 'public/js/sharehits.js' %}"></script>-->
       <script src="{% static 'public/lib/jquery/dist/jquery.min.js' %}"></script>
+      <!--<script src="{% static 'vendor/jquery-ui/external/jquery/jquery.js' %}"></script>-->
+      <script src="{% static 'vendor/jquery-ui/jquery-ui.min.js' %}"></script>
       <script src="{% static 'public/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
       <script type="text/javascript">
          var app = angular.module("sharehits", [
@@ -67,6 +72,10 @@
          });
       </script>
       <script src="{% static 'public/js/app.js' %}"></script>
+
+      {% block extrajs %}
+      {% endblock %}
+
    </body>
 
 </html>

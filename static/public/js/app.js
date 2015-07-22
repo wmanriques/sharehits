@@ -34,4 +34,10 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
         })
         return $scope;
     })
+
+    $scope.in_room = function(data){
+        console.log("0000");
+        console.log(data);
+        socket.emit('adduser', username); 
+    }
 });

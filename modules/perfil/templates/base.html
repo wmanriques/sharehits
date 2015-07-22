@@ -10,8 +10,6 @@
       <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
       <link rel="stylesheet" href="{% static 'vendor/jquery-ui/jquery-ui.css' %}">
       <link rel="stylesheet" href="{% static 'vendor/jquery-ui/bootstrap-jquery-ui.css' %}">
-
-
       <title>ShareHits</title>
    </head>
    <body ng-controller="mainController">
@@ -52,14 +50,21 @@
       <script src="{% static 'public/js/common/services/sala.js' %}"></script>
       <script src="{% static 'public/js/components/sala/sala.js' %}"></script>
       <script src="{% static 'public/js/components/dashboard/crearsala/crearsala.js' %}"></script>
-      <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>
-      <script src="{% static 'public/js/sharehits.js' %}"></script>-->
+      <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>-->
+      <script src="{% static 'public/js/sharehits.js' %}"></script>
       <script src="{% static 'public/lib/jquery/dist/jquery.min.js' %}"></script>
       <!--<script src="{% static 'vendor/jquery-ui/external/jquery/jquery.js' %}"></script>-->
       <script src="{% static 'vendor/jquery-ui/jquery-ui.min.js' %}"></script>
       <script src="{% static 'public/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
       <script src="{% static 'vendor/bootstrap-validator/validator.min.js' %}"></script>
+
+      <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+      
+        
+
       <script type="text/javascript">
+        var socket = io.connect('http://localhost:3000');
+        var username="{{user.username}}";
          var app = angular.module("sharehits", [
               "ngMaterial",
           ])
@@ -67,7 +72,7 @@
                 $interpolateProvider.startSymbol('[[').endSymbol(']]');
          });
          app.constant('user', {
-             username: "{{ user.username }}",
+             username: "{{ user.username }}"
          });
       </script>
       <script src="{% static 'public/js/app.js' %}"></script>

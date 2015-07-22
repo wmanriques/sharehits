@@ -17,7 +17,7 @@
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" >
+                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">
                       <input type="hidden" value="[[sala.id]]"/>
                        <div class="cont-text-sala">
                        
@@ -48,16 +48,16 @@
            <!--<div layout="row" layout-align="center center">-->
              <md-list class="list-salas">
                 <md-list-item ng-repeat="sala in mis_salas" class="item-sala md-raised" ng-style="{'background-image':'url('+sala.image+')'}">
-                   <md-button  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme">
+                   <a  href="[[ sala.url ]]" class="md-list-item-text md-button md-default-theme" ng-click="in_room(sala.id)">
                        <div class="cont-text-sala">
-                        <h2><a href="[[ sala.url ]]">[[ sala.name ]]</a></h2>
+                        <h2><a href="#">[[ sala.name ]]</a></h2>
                         <button class="md-raised md-button md-default-theme" ng-transclude=""><span class="ng-scope">[[ sala.mode ]]</span><div class="md-ripple-container"></div></button>
 
                         <div class="cont-tags-rooms">
                            <md-button ng-repeat="t in sala.tag" class="md-raised">[[ t.name ]]</md-button>
                         </div>
                        </div>
-                   </md-button>
+                   </a>
                    <md-divider ng-if="!$last"></md-divider>
                 </md-list-item>
              </md-list>
@@ -291,28 +291,6 @@
         }
     </script>
 
-    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script type="text/javascript">
-      
-      
-      $(document).ready(function () {
-          var socket = io.connect('http://localhost:3000');
 
-          $("#add_user").submit(function( event ) {
-            
-           var u=$("#username").val();
-            console.log(u);
-            socket.emit('adduser', {
-              data:{
-                username:"{{user.username}}",
-                room: $("#room-name").val();
-              }
-            }); 
-            event.preventDefault();
-          });
-          
-      });
-
-    </script>
 {% endblock %}
 

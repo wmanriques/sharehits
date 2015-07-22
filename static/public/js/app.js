@@ -29,15 +29,14 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
     RoomUserFactory.getAll().then(function(res){
         $scope.mis_salas = [];
         res.data.forEach(function(item){
-        	console.log("dd",item);
         	$scope.mis_salas.push(item);
         })
         return $scope;
     })
 
-    $scope.in_room = function(data){
-        console.log("0000");
-        console.log(data);
-        socket.emit('adduser', username); 
+    $scope.in_room = function(roomid){
+        console.log(username);
+        console.log(roomid);
+        socket.emit('adduser', username, roomid); 
     }
 });

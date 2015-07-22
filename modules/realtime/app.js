@@ -10,8 +10,9 @@ var usernames = {};
 
 io.on('connection', function (socket) {
 
-	socket.on('adduser', function(username){
+	socket.on('adduser', function(username, roomid){
 		console.log("in server", username);
+		console.log("in server2", roomid);
 	    // we store the username in the socket session for this client
 	    socket.username = username;
 	    // add the client's username to the global list

@@ -13,18 +13,35 @@
       <title>ShareHits</title>
    </head>
    <body ng-controller="roomController">
-      <div layout="column" layout-fill>
+      <div layout="column" class="header-login">
         <md-toolbar>
-          <div class="md-toolbar-tools">
-            <span>ShareHits</span>
-            <!-- fill up the space between left and right area -->
-            <span flex></span>
-            <md-button>
-              {% if user.is_authenticated %}
-                  <p class="name-user">{{ user.first_name }}
-               {% endif %}
-            </md-button>
-          </div>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <a ui-sref="dashboard"><span>Sharehits</span></a>
+                </h2>
+                <span flex></span>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            {% if user.is_authenticated %}
+                                <p class="name-user">{{ user.first_name }}</p>
+                                <md-menu class="cont-btn-logout" md-offset="0 30">
+                                    <img src="{{ user.profile.photo }}" class="dashboard-image" ng-click="$mdOpenMenu()">
+                                    <md-menu-content width="3">
+                                        <md-menu-item>
+                                            <md-button href="{% url 'auth_logout' %}">
+                                                <md-icon md-menu-align-target md-font-icon="fa fa-power-off">
+                                                    Logout
+                                                </md-icon>
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </md-toolbar>
         <div>
             <div class="background-room" style="background-image:url('{{object.image}}')"></div>
@@ -37,13 +54,15 @@
                 <input ng-model="nameSingleAuthor" id="input-search-song">
             </md-input-container>
             <h1 class="name-room">{{ room.name }}</h1>
+
             <div class="cont-rows-shareHist">
-                <md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3">
+                <md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3"
+                    ng-class="{'fadeInOut':toggleBox[0]}">
                     <h4 class="box-head">Miembros conectados</h4>
                     <div class="over-list">
                         <md-list layout-padding>
                             <md-list-item class="md-3-line" ng-repeat="member in listMembersChat">
-                                <img ng-src="{{ user.profile.photo }}" class="md-avatar" alt="{{ member.username }}">
+                                <img ng-src="{{ user.profile.photo }}" class="md-avatar" alt="{{ member.name }}">
                                 <div class="md-list-item-text">
                                     <h4>{{ user.username }}</h4>
                                 </div>
@@ -52,7 +71,28 @@
                     </div>
                 </md-content>
 
-                <!--<md-content class="row-room-shareHist box-room-general content-chat md-whiteframe-z3">
+                <!--<md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3">
+                    <h4>Miembros</h4>
+                    <div class="over-list">
+                        <md-list layout-padding>
+                            <md-list-item class="md-3-line" ng-repeat="member in listMembersChat">
+                                <img ng-src="{{ member.face }}" class="md-avatar" alt="{{ member.name }}">
+                                <div class="md-list-item-text">
+                                    <h4>{{ member.name }}</h4>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </div>
+                </md-content>-->
+
+                <md-content class="row-room-shareHist box-room-general content-chat md-whiteframe-z3">
+                    <div class="tag-responsive-room tag-member" ng-click="toggleBoxFunc(0)"
+                         ng-class="{'fadeInOut':toggleBox[0]}"  >Miembros</div>
+                    <div class="tag-responsive-room tag-music-player" ng-click="toggleBoxFunc(1)"
+                         ng-class="{'fadeInOut':toggleBox[1]}"  >Reproductor</div>
+                    <div class="tag-responsive-room tag-playlist" ng-click="toggleBoxFunc(2)"
+                         ng-class="{'fadeInOut':toggleBox[2]}"  >Playlist</div>
+
                     <md-list class="content-list-message" layout-padding>
                         <md-list-item class="md-3-line" ng-repeat="message in messages">
                             <img ng-src="{{ message.face }}" class="md-avatar" alt="{{ message.who }}">
@@ -60,9 +100,7 @@
                             <div class="md-list-item-text">
                                 <h3>{{ message.what }}</h3>
                                 <h4>{{ message.who }}</h4>
-                                <p>
-                                    {{ message.notes }}
-                                </p>
+                                <p>{{ message.notes }}</p>
                             </div>
                         </md-list-item>
                     </md-list>
@@ -70,12 +108,37 @@
                         <label>Mensaje...</label>
                         <input ng-model="user.address">
                     </md-input-container>
-                </md-content>-->
+                </md-content>
 
-                <div class="row-room-shareHist row-room-shareHist-reproduct-playlist">
+                <div class="row-room-shareHist row-room-shareHist-reproduct-playlist"
+                     ng-class="{'fadeInOut':toggleBox[1] || toggleBox[2]}">
+
+                    <md-content class="reproduct-music box-room-general md-whiteframe-z3"
+                                ng-class="{'fadeInOut':toggleBox[1]}">
+                        <iframe id="player" width="100%" height="144" scrolling="no" frameborder="no" src = "https://w.soundcloud.com/player/?url=https://soundcloud.com/kygo/syn-cole-miami-82-kygo-remix&hide_related=true&visual=true"></iframe>
+                    </md-content>
+
+                    <md-content class="cont-playlist box-room-general md-whiteframe-z3"
+                                ng-class="{'fadeInOut':toggleBox[2]}">
+                        <h4>Playlist</h4>
+                        <div class="over-list">
+                            <md-list layout-padding>
+                                <md-list-item class="md-3-line" ng-repeat="song in songs">
+                                    <div class="md-list-item-text">
+                                        <h4>{{ song.title }} - {{ song.url }}</h4>
+                                    </div>
+                                </md-list-item>
+                            </md-list>
+                        </div>
+                    </md-content>
+                    <!--<div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
+                      <b>USERS</b>
+                      <div id="users"></div>
+                    </div>-->
+                </div>
+                <!--<div class="row-room-shareHist row-room-shareHist-reproduct-playlist">
                     <md-content class="reproduct-music box-room-general md-whiteframe-z3">
-                        <iframe id="sc-player" width="100%" height="145" scrolling="no" frameborder="no" >
-                        </iframe>
+                        <iframe id="sc-player" width="100%" height="145" scrolling="no" frameborder="no"></iframe>
                     </md-content>
 
                     <md-content class="cont-playlist box-room-general md-whiteframe-z3">
@@ -91,11 +154,10 @@
                         </div>
                     </md-content>
                     <div style="float:left;width:100px;border-right:1px solid black;height:300px;padding:10px;overflow:scroll-y;">
-  <b>USERS</b>
-  <div id="users"></div>
-</div>
-                </div>
-
+                      <b>USERS</b>
+                      <div id="users"></div>
+                    </div>
+                </div>-->
             </div>
         </div>
       </div>

@@ -218,7 +218,7 @@
                url: "/api/songs/room/"+roomId+"/?format=json"
            }).done(function(data) {
                if (data.length == 0){
-                   $(".reproduct-music").html("<b>Sin canciones aun!</b>");
+//                   $(".reproduct-music").html("<b>Sin canciones aun!</b>");
                }else{
                    songs = data;
                    var firstSongUrl = data[0].url;
@@ -226,9 +226,9 @@
                    currentSongIndex = 0;
                    
                    Widget = SC.Widget(iframe);
+                   Widget.bind(SC.Widget.Events.FINISH, widgetFinishEventListener);
 //                   $(".cookiePolicy").remove();
                    
-                   Widget.bind(SC.Widget.Events.FINISH, widgetFinishEventListener);
                    
                    for (var i=0; i<data.length; i++){
                        var playingClass = (i == 0)? "song-playing": "";
@@ -275,10 +275,20 @@
                    url: "/api/songs/room/"+roomId+"/?format=json"
                }).done(function(data) {
                    if (data.length == 0){
-                       $(".reproduct-music").html("<b>Sin canciones aun!</b>");
+//                       $(".reproduct-music").html("<b>Sin canciones aun!</b>");
                    }else{
-                       songs = data;
+                       /* Playlist vacio */
+                       if (songs.length == 0){
+                           console.log("Playlist empty!");
+                           var firstSongUrl = data[0].url;
+                           iframe.src = iframeSrcPrefix + firstSongUrl + iframeOPtions;
+                           currentSongIndex = 0;
+
+                           Widget = SC.Widget(iframe);
+                           Widget.bind(SC.Widget.Events.FINISH, widgetFinishEventListener);                 
+                       }
                        
+                       songs = data;
                        $(".cont-songs").empty();
 
                        for (var i=0; i<data.length; i++){

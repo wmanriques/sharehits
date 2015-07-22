@@ -90,8 +90,8 @@
             <input id="tags" class="form-control" placeholder="Agregar etiquetas" required>
           </div>
           <select class="form-control" id="room-mode">
-            <option value="public">Public</option>
-            <option value="private">Private</option>
+            <option value="Public">Public</option>
+            <option value="Private">Private</option>
           </select>
         </form>
       </div>
@@ -262,41 +262,28 @@
             var csrftoken = getCookie('csrftoken');
             var data = {
                 name: $("#room-name").val(),
-                url: $("#room-url").val(),
+                image: $("#room-url").val(),
                 tags: $("#tags").val(),
                 mode: $( "#room-mode" ).val(),
-                csrfmiddlewaretoken: csrftoken
+                csrfmiddlewaretoken: csrftoken,
+                creator: "{{user.username}}"
             };
             if (data.name != "" && data.url != "" && data.url !="" != data.mode !="") {
               console.log(data);
-                /*$.ajax({
-                    url: "",
+                $.ajax({
+                    url: "{% url 'api-room-create' %}",
                     type: "POST",
                     dataType: "json",
                     enctype: "multipart/form-data",
-                    data: dat,
+                    data: data,
 
                     success: function (data) {
-                        console.log(data);
-                        if (data.message === "CORRECTO"){
-                            var options = {
-                                    "backdrop" : "static",
-                                    "keyboard" : false,
-                                    "show" : true,
-                                }
-                            $('#test').modal(options);
-                            var direction = '/problem/review/'+data.problemid;
-                            console.log(direction)
-                            $("a.problem-id-review").attr('href', direction);
-                        }else{
-                            alert(data.message);
-                        }
-                        
+                        location.reload();
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         
                     }
-                });*/
+                });
             }else{
                 alert("ingrese todos los datos");
             }

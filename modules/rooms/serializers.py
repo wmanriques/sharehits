@@ -35,7 +35,7 @@ class SongSerializer(serializers.ModelSerializer):
 class UserRoomSerializer(serializers.ModelSerializer):
 	user = serializers.SlugRelatedField(
         read_only=True,
-        slug_field='first_name'
+        slug_field='username'
      )
 	class Meta:
 		model = User_Room

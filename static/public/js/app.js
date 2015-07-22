@@ -51,7 +51,6 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
 
             success: function (data) {
                 console.log(data);
-                alert("holi");
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 

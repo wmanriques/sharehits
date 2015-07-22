@@ -21,7 +21,7 @@ class DashboardTemplateView(LoginRequiredMixin, TemplateView):
 		
 		tags = []
 		for t in Tag.objects.all():
-			tags.append(str(t.name.encode('utf8')))
+			tags.append(t.name.encode('utf8'))
 		context['tags'] = tags
 		return context
 

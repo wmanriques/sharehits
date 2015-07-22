@@ -25,7 +25,7 @@ app.controller("roomController",["$scope", "ROOM_ID",function ($scope, ROOM_ID) 
       $scope.sala = sala;
       
       var imagePath="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn2/976318_531172143604437_1180814581_o.jpg";
-
+      console.log("room _ ");
       $scope.listMembersChat=[
           {
             face : imagePath,

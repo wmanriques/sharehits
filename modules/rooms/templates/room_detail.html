@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="{% static 'public/lib/components-font-awesome/css/font-awesome.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
       <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
+       <link rel="stylesheet" href="{% static 'public/css/changes.css' %}">
       <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
 
       <title>ShareHits</title>
@@ -33,7 +34,7 @@
             </div>-->
             <md-input-container flex class="cont-input-search">
                 <label>Buscar canción o autor</label>
-                <input ng-model="nameSingleAuthor">
+                <input ng-model="nameSingleAuthor" id="input-search-song">
             </md-input-container>
             <h1 class="name-room">{{ sala.name }}</h1>
             <div class="cont-rows-shareHist">
@@ -73,16 +74,17 @@
 
                 <div class="row-room-shareHist row-room-shareHist-reproduct-playlist">
                     <md-content class="reproduct-music box-room-general md-whiteframe-z3">
-                        reproductor de musica
+                        <iframe id="sc-player" width="100%" height="145" scrolling="no" frameborder="no" >
+                        </iframe>
                     </md-content>
 
                     <md-content class="cont-playlist box-room-general md-whiteframe-z3">
                         <h4>Playlist</h4>
                         <div class="over-list">
-                            <md-list layout-padding>
+                            <md-list layout-padding class="cont-songs">
                                 <md-list-item class="md-3-line" ng-repeat="song in songs">
                                     <div class="md-list-item-text">
-                                        <h4>{{ song.songName }} - {{ song.songAuthor }}</h4>
+                                        <h4>{{ song.title }} - {{ song.url }}</h4>
                                     </div>
                                 </md-list-item>
                             </md-list>
@@ -94,7 +96,22 @@
         </md-content>
       </div>
     
-
+       <div class="modal fade" id="modal-search-song" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+           <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                   <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+                       <h4 class="modal-title" id="myModalLabel">Resultado de la busqueda</h4>
+                   </div>
+                   <div class="modal-body">
+                       <div class="list-group">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
 
       <!-- LIBS -->
@@ -104,6 +121,9 @@
       <script src="{% static 'public/lib/angular-animate/angular-animate.min.js' %}"></script>
       <script src="{% static 'public/lib/angular-aria/angular-aria.min.js' %}"></script>
       <script src="{% static 'public/lib/angular-material/angular-material.min.js' %}"></script>
+       <!-- souncloud api-->
+       <script src="http://connect.soundcloud.com/sdk-2.0.0.js"></script>
+       <script src="https://w.soundcloud.com/player/api.js"></script>
       <!-- App -->
       <!--<script src="{% static 'public/js/common/services/util.js' %}"></script>
       <script src="{% static 'public/js/common/services/user.js' %}"></script>
@@ -124,8 +144,144 @@
          app.constant('user', {
              username: "{{ user.username }}",
          });
+          app.constant('ROOM_ID', '{{room.id}}');
       </script>
       <script src="{% static 'public/js/room.js' %}"></script>
+       <script>
+           var roomId = "{{room.id}}";
+           
+           var iframe = document.querySelector('#sc-player');
+           var iframeSrcPrefix = "https://w.soundcloud.com/player/?url=";
+           var iframeOPtions = "&auto_play=true&hide_related=true&visual=true&download=false&buying=false&sharing=false&liking=false&show_comments=false";
+           
+           var Widget;
+           var options = {auto_play: true, hide_related: true, visual: true, download: false, buying: false, sharing: false, liking: false, show_comments:false};
+           
+           var songs = [];
+           var currentSongIndex = 0;
+           
+           $.ajax({
+               method: "GET",
+               url: "/api/songs/room/"+roomId+"/?format=json"
+           }).done(function(data) {
+               if (data.length == 0){
+                   $(".reproduct-music").html("<b>Sin canciones aun!</b>");
+               }else{
+                   songs = data;
+                   var firstSongUrl = data[0].url;
+                   iframe.src = iframeSrcPrefix + firstSongUrl + iframeOPtions;
+                   currentSongIndex = 0;
+                   
+                   Widget = SC.Widget(iframe);
+//                   $(".cookiePolicy").remove();
+                   
+                   Widget.bind(SC.Widget.Events.FINISH, widgetFinishEventListener);
+                   
+                   for (var i=0; i<data.length; i++){
+                       var playingClass = (i == 0)? "song-playing": "";
+                       
+                       $(".cont-songs").append(''+
+                            '<md-list-item class="md-3-line" >'+
+                                '<div class="md-list-item-text">'+
+                                    '<h4 class="song '+playingClass+'" song-url="'+data[i].url+'" song-index="'+i+'" >'+data[i].title+'</h4>'+
+                                '</div>'+
+                            '</md-list-item>');
+                   }                   
+               }
+           });
+           
+           /* Carga la song clickeada en el iframe */
+           $(document).on('click', '.song',function (){
+               console.log("song clicked!");
+               var url = $(this).attr("song-url");
+               Widget.load(url, options);
+               
+               $('.song[song-index="'+currentSongIndex+'"]').removeClass("song-playing");
+               
+               var index = Number($(this).attr("song-index"));
+               currentSongIndex = index;
+               
+               $('.song[song-index="'+currentSongIndex+'"]').addClass("song-playing");
+           });
+           
+           /* Cargar la siguiente song en el iframe */
+           function widgetFinishEventListener(e) {
+               console.log("song finished!");
+               $('.song[song-index="'+currentSongIndex+'"]').removeClass("song-playing");
+               
+               currentSongIndex = (currentSongIndex == songs.length - 1)? 0 : currentSongIndex+1;
+               Widget.load(songs[currentSongIndex].url, options);
+               
+               $('.song[song-index="'+currentSongIndex+'"]').addClass("song-playing");
+           }
+           
+           /* Polling de songs del room */
+           setInterval(function(){
+               $.ajax({
+                   method: "GET",
+                   url: "/api/songs/room/"+roomId+"/?format=json"
+               }).done(function(data) {
+                   if (data.length == 0){
+                       $(".reproduct-music").html("<b>Sin canciones aun!</b>");
+                   }else{
+                       songs = data;
+                       
+                       $(".cont-songs").empty();
+
+                       for (var i=0; i<data.length; i++){
+                           var playingClass = (i == currentSongIndex)? "song-playing": "";
+
+                           $(".cont-songs").append(''+
+                                '<md-list-item class="md-3-line" >'+
+                                    '<div class="md-list-item-text">'+
+                                        '<h4 class="song '+playingClass+'" song-url="'+data[i].url+'" song-index="'+i+'" >'+data[i].title+'</h4>'+
+                                    '</div>'+
+                                '</md-list-item>');
+                       }                   
+                   }
+               });
+           }, 5000);
+           
+           
+           /* Buscar cancion en soundcloud*/
+           $("#input-search-song").keypress(function(e) {
+               if (e.which == 13) {
+                   var query = $("#input-search-song").val();
+                   $("#modal-search-song .modal-title").html(query);
+                   
+                   SC.get('/tracks', {q: query, limit: 10}, function(tracks) {
+                       $("#modal-search-song .modal-body .list-group").empty();
+                       for (var i=0; i<tracks.length; i++){
+                           $("#modal-search-song .modal-body .list-group").append(''+
+                                '<button type="button" song-url="'+tracks[i].permalink_url+'" class="list-group-item search-song" data-dismiss="modal">'+
+                                    tracks[i].title+
+                                '</button>');
+                       }
+                       $("#modal-search-song").modal("show");
+                   });
+               }
+           });
+           
+           /* Agregar song al playlist del room */
+           $(document).on('click', '.search-song',function (){
+               var dataObj = {
+                   room_id: roomId,
+                   user_id: "{{user.id}}",
+                   song_title: $(this).html(),
+                   song_url: $(this).attr("song-url"),
+                   csrfmiddlewaretoken: "{{csrf_token}}"
+               };
+                console.log(dataObj)
+               $.ajax({
+                   method: "POST",
+                   url: "/api/song/add/?format=json",
+                   data: dataObj
+               }).done(function(data) {
+                   console.log(data);
+               });
+           });
+           
+       </script>
    </body>
 
 </html>

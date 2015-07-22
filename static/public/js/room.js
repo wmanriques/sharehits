@@ -1,5 +1,5 @@
 
-app.controller("roomController",["$scope",function ($scope) {
+app.controller("roomController",["$scope", "ROOM_ID",function ($scope, ROOM_ID) {
       sala = {
         "id": 4,
         "name": "Sonada Acustica",
@@ -103,34 +103,25 @@ app.controller("roomController",["$scope",function ($scope) {
             notes: " I'll be in your neighborhood doing errands"
           }
       ];
-      $scope.songs=[
-          {
-              songName:"Hombre lobo en parís",
-              songAuthor:"La Unión"
-          },
-          {
-              songName:"Pronta entrega",
-              songAuthor:"Virus"
-          },
-          {
-              songName:"Haló",
-              songAuthor:"Beyonce"
-          },
-          {
-              songName:"Time in a bottle",
-              songAuthor:"Jim Croce"
-          },
-          {
-              songName:"Pronta entrega",
-              songAuthor:"Virus"
-          },
-          {
-              songName:"Haló",
-              songAuthor:"Beyonce"
-          },
-          {
-              songName:"Time in a bottle",
-              songAuthor:"Jim Croce"
-          }
-      ];
+      $scope.songs = [];
+    
+//    var iframe = document.querySelector('#sc-player');
+//    var scPlayerSrcPrefix = "https://w.soundcloud.com/player/?url=";
+//    var scPlayerOPtions = "&hide_related=true&visual=true&auto_play=true&download=false&buying=false&sharing=false";
+//
+//    $.ajax({
+//        method: "GET",
+//        url: "http://localhost:8000/api/songs/room/"+ROOM_ID+"/?format=json"
+//        /*data: { name: "John", location: "Boston" }*/
+//    }).done(function(data) {
+//        if (data.length == 0){
+//            $(".reproduct-music").html("<b>Sin canciones aun!</b>");
+//        }else{
+//            $scope.songs.push(data[0]);
+//            var firstSongUrl = data[0].url;
+//            iframe.src = scPlayerSrcPrefix+firstSongUrl+scPlayerOPtions;
+//        }
+//    });
+        
+
    }]);

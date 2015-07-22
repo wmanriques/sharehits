@@ -1,0 +1,5 @@
+.row-room-shareHist .reproduct-music {padding-top: 0px}
+
+.cont-songs .song {cursor: pointer}
+    .cont-songs .song.song-playing {color: #fff}
+.cont-songs .song:hover {color: #fff}

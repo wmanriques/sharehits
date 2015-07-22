@@ -1,5 +1,10 @@
+.background-room {opacity: 0.8;}
+
 .row-room-shareHist .reproduct-music {padding-top: 0px}
 
+.over-list {background-color:#EBEBEB;}
+
 .cont-songs .song {cursor: pointer}
-    .cont-songs .song.song-playing {color: #fff}
+.cont-songs .song.song-playing {color: #FF6C00}
 .cont-songs .song:hover {color: #fff}
+

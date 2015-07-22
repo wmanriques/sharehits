@@ -12,10 +12,15 @@ angular.module("sharehits", [
 
 
     ])
-    .config(['$urlRouterProvider', function ($urp) {
+    .constant('user', {
+             username: "{{ user.username }}"
+    })
+    .config(['$urlRouterProvider','$interpolateProvider', function ($urp,$interpolateProvider) {
+        $interpolateProvider.startSymbol('[[').endSymbol(']]');
         $urp.otherwise("/");
     }])
     .controller('mainController',['$scope', function($scope){
+        console.log("main");
          $scope.safeApply = function (fn) {
             var phase;
             if(this.$root!==null){
@@ -32,6 +37,7 @@ angular.module("sharehits", [
         $scope.imgs=[false,true,false];
         var i=1;
         var interIni=setInterval(function () {
+                console.log("Interval");
                 if(i<2){i++;}
                 else {i=0;}
                 $scope.safeApply(function () {

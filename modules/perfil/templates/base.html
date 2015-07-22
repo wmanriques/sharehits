@@ -10,8 +10,6 @@
       <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
       <link rel="stylesheet" href="{% static 'vendor/jquery-ui/jquery-ui.css' %}">
       <link rel="stylesheet" href="{% static 'vendor/jquery-ui/bootstrap-jquery-ui.css' %}">
-
-
       <title>ShareHits</title>
    </head>
    <body ng-controller="mainController">
@@ -52,8 +50,8 @@
       <script src="{% static 'public/js/common/services/sala.js' %}"></script>
       <script src="{% static 'public/js/components/sala/sala.js' %}"></script>
       <script src="{% static 'public/js/components/dashboard/crearsala/crearsala.js' %}"></script>
-      <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>
-      <script src="{% static 'public/js/sharehits.js' %}"></script>-->
+      <script src="{% static 'public/js/components/dashboard/dashboard.js' %}"></script>-->
+      <script src="{% static 'public/js/sharehits.js' %}"></script>
       <script src="{% static 'public/lib/jquery/dist/jquery.min.js' %}"></script>
       <!--<script src="{% static 'vendor/jquery-ui/external/jquery/jquery.js' %}"></script>-->
       <script src="{% static 'vendor/jquery-ui/jquery-ui.min.js' %}"></script>
@@ -67,7 +65,7 @@
                 $interpolateProvider.startSymbol('[[').endSymbol(']]');
          });
          app.constant('user', {
-             username: "{{ user.username }}",
+             username: "{{ user.username }}"
          });
       </script>
       <script src="{% static 'public/js/app.js' %}"></script>

@@ -11,19 +11,6 @@
       <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
 
       <title>ShareHits</title>
-
-      <style type="text/css">
-        .background-room{
-          opacity: 0.8;
-        }
-        .over-list{
-          background-color:#EBEBEB;
-        }
-        .cont-songs .song-playing{
-         color:#FF6C00; /* No esta haciendo efecto a la cancion activa*/
-        }
-        
-      </style>
    </head>
    <body ng-controller="roomController">
       <div layout="column" layout-fill>
@@ -52,7 +39,7 @@
             <h1 class="name-room">{{ room.name }}</h1>
             <div class="cont-rows-shareHist">
                 <md-content class="row-room-shareHist box-room-general list-member md-whiteframe-z3">
-                    <h4>Miembros conectados</h4>
+                    <h4 class="box-head">Miembros conectados</h4>
                     <div class="over-list">
                         <md-list layout-padding>
                             <md-list-item class="md-3-line" ng-repeat="member in listMembersChat">
@@ -92,7 +79,7 @@
                     </md-content>
 
                     <md-content class="cont-playlist box-room-general md-whiteframe-z3">
-                        <h4>Playlist</h4>
+                        <h4 class="box-head">Playlist</h4>
                         <div class="over-list">
                             <md-list layout-padding class="cont-songs">
                                 <md-list-item class="md-3-line" ng-repeat="song in songs">

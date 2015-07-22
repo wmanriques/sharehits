@@ -2,41 +2,52 @@
 
 <!DOCTYPE html>
 <html ng-app="sharehits">
-   <head>
-      <meta charset="utf-8">
-      <link rel="stylesheet" href="{% static 'public/lib/components-font-awesome/css/font-awesome.min.css' %}">
-      <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
-      <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
-      <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
-      <link rel="stylesheet" href="{% static 'vendor/jquery-ui/jquery-ui.css' %}">
-      <link rel="stylesheet" href="{% static 'vendor/jquery-ui/bootstrap-jquery-ui.css' %}">
-      <title>ShareHits</title>
-   </head>
-   <body ng-controller="mainController">
-      <div layout="column" layout-fill>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'public/lib/components-font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'public/lib/angular-material/angular-material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'public/css/main.min.css' %}">
+    <link rel="stylesheet" href="{% static 'public/lib/bootstrap/dist/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/jquery-ui/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'vendor/jquery-ui/bootstrap-jquery-ui.css' %}">
+    <title>ShareHits</title>
+</head>
+<body ng-controller="mainController">
+    <div layout="column" class="header-login">
         <md-toolbar>
-          <div class="md-toolbar-tools">
-            <span>ShareHits</span>
-            <!-- fill up the space between left and right area -->
-            <span flex></span>
-            <md-button>
-              {% if user.is_authenticated %}
-                  <p class="name-user">{{ user.first_name }}
-               {% endif %}
-            </md-button>
-          </div>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <a ui-sref="dashboard"><span>Sharehits</span></a>
+                </h2>
+                <span flex></span>
+                <div class="nav">
+                    <ul>
+                        <li>
+                            {% if user.is_authenticated %}
+                                <p class="name-user">{{ user.first_name }}</p>
+                                <md-menu class="cont-btn-logout" md-offset="0 30">
+                                    <img src="{{ user.profile.photo }}" class="dashboard-image" ng-click="$mdOpenMenu()">
+                                    <md-menu-content width="3">
+                                        <md-menu-item>
+                                            <md-button href="{% url 'auth_logout' %}">
+                                                <md-icon md-menu-align-target md-font-icon="fa fa-power-off">
+                                                    Logout
+                                                </md-icon>
+                                            </md-button>
+                                        </md-menu-item>
+                                    </md-menu-content>
+                                </md-menu>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </md-toolbar>
-        <md-content>
-          {% block content %}
-             
-         
-            {% endblock %}
-        </md-content>
-      </div>
-   	
-
-
-
+    </div>
+    <md-content>
+        {% block content %}
+        {% endblock %}
+    </md-content>
       <!-- LIBS -->
       <script src="{% static 'public/lib/angular/angular.min.js' %}"></script>
       <script src="{% static 'public/lib/angular-messages/angular-messages.min.js' %}"></script>
@@ -59,14 +70,12 @@
       <script src="{% static 'vendor/bootstrap-validator/validator.min.js' %}"></script>
 
       <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-      
-        
 
       <script type="text/javascript">
-        var socket = io.connect('http://localhost:3000');
-        var username="{{user.username}}";
+{#        var socket = io.connect('http://localhost:3000');#}
+{#        var username="{{user.username}}";#}
          var app = angular.module("sharehits", [
-              "ngMaterial",
+              "ngMaterial"
           ])
          .config(function($interpolateProvider){
                 $interpolateProvider.startSymbol('[[').endSymbol(']]');
@@ -77,9 +86,8 @@
       </script>
       <script src="{% static 'public/js/app.js' %}"></script>
 
-      {% block extrajs %}
-      {% endblock %}
-
-   </body>
+    {% block extrajs %}
+    {% endblock %}
+</body>
 
 </html>

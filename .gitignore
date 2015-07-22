@@ -1,4 +1,5 @@
 node_modules
+modules/realtime/node_modules
 public/lib
 *.~
 .idea

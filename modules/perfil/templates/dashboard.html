@@ -289,5 +289,29 @@
             }
         }
     </script>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      
+      
+      $(document).ready(function () {
+          var socket = io.connect('http://localhost:3000');
+
+          $("#add_user").submit(function( event ) {
+            
+           var u=$("#username").val();
+            console.log(u);
+            socket.emit('adduser', {
+              data:{
+                username:"{{user.username}}",
+                room: $("#room-name").val();
+              }
+            }); 
+            event.preventDefault();
+          });
+          
+      });
+
+    </script>
 {% endblock %}
 

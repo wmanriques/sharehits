@@ -274,7 +274,7 @@
                 console.log(dataObj)
                $.ajax({
                    method: "POST",
-                   url: "/api/song/add/?format=json",
+                   url: "/api/song/add/",
                    data: dataObj
                }).done(function(data) {
                    console.log(data);

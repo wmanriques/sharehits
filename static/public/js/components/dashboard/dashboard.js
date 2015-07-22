@@ -15,6 +15,7 @@ angular.module("dashboard",[
       });
 }])
 .controller("dashboardController",["$scope","$mdDialog","SalaService","salas",function ($scope,$mdDialog,SalaService,salas) {
+   console.log('dashboardController',salas,SalaService);
    $scope.salas = salas;
 
 

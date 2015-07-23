@@ -52,4 +52,4 @@ class User_Room(models.Model):
 		unique_together = (("user", "room"),)
 
 	def __unicode__(self):
-		return u"{}, user: {}, mode: {}".format(self.room.name, self.user.first_name, self.mode)
+		return u"{}, user: {}, mode: {}".format(self.room.name, self.user.username, self.mode)

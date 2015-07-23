@@ -84,8 +84,12 @@ app.controller("roomController",function ($scope, ROOM_ID,User,socketService) {
             notes: " I'll be in your neighborhood doing errands"
           }
       ];
+
       */
       $scope.songs = [];
+
+      $scope.songs = [{}];
+
 
       $scope.toggleBox=[false,false,false];
       $scope.toggleBoxFunc= function (num){

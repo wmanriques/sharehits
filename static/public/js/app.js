@@ -35,8 +35,28 @@ app.controller('mainController', function($scope, RoomFactory, RoomUserFactory){
     })
 
     $scope.in_room = function(roomid){
-        console.log(username);
+        console.log(userid);
         console.log(roomid);
+        var data={
+            roomid:roomid,
+            userid:userid,
+            csrfmiddlewaretoken: csrf_token,
+        }
+        $.ajax({
+            url: "/api/add/user/room/",
+            type: "POST",
+            dataType: "json",
+            enctype: "multipart/form-data",
+            data: data,
+
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                
+            }
+        });
+
         //socket.emit('adduser', username, roomid); 
     }
 });

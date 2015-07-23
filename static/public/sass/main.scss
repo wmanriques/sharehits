@@ -236,7 +236,8 @@ body{
   }
 }
 .box-room-general{
-   background: rgba(5, 5, 5, 0.24);
+//   background: rgba(5, 5, 5, 0.24);
+    background: white;
     .over-list{
       overflow-y: auto;
     }
@@ -249,7 +250,7 @@ body{
   background-position: center;
   left: 0;
   top: 0;
-  background-color: black;
+  background-color: white;
   opacity: 0.13;
   &.background-room-top{
       background-color: rgba(0, 0, 0, 0.41);
@@ -366,17 +367,17 @@ body{
         }
     }
     .row-room-shareHist.row-room-shareHist-reproduct-playlist{
-      position: absolute;
+//      position: absolute;
       z-index: 1;
-      width: 0px;
+//      width: 0px;
       &.fadeInOut{
         z-index: 3;
       }
       .reproduct-music,.cont-playlist{
-        position: absolute;
-        left: -449px;
+//        position: absolute;
+//        left: -449px;
         background: rgba(255, 255, 255, 1);
-        opacity: 0;
+        opacity: 1;
         -webkit-transition: all .3s;-moz-transition: all .3s;-ms-transition: all .3s;-o-transition: all .3s;transition: all .3s;
         &.fadeInOut{
           opacity: 1;

@@ -157,3 +157,16 @@ def song_create(request):
 
 		else:
 			return JsonResponse({'msg':'User no exist in room'}, status=403)
+
+@api_view(['POST'])
+def add_user_room(request):
+	"""
+	add user in room
+	"""
+
+	if request.method == 'POST':
+		user_in_room=User_Room.objects.filter(user=User.objects.get(id=request.DATA['userid']), room=Room.objects.get(id=request.DATA['roomid']))
+		if not user_in_room:
+			User_Room.objects.create(user=User.objects.get(id=request.DATA['userid']), room=Room.objects.get(id=request.DATA['roomid']), mode="MEMBER")
+
+		return JsonResponse({}, status=201)
